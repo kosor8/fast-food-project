@@ -1,5 +1,7 @@
 # fast-food-project
 
+
+Frontend Genel Yapı
 Yapı : React (Vite ile)
 Stiller : Tailwind CSS
 Animasyon	: Framer Motion (optional)
