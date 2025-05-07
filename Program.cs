@@ -4,12 +4,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Swagger/OpenAPI Desteği
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(); // AddOpenApi yerine bu tercih edilir
+builder.Services.AddSwaggerGen(); // Swagger'ı kullanmaya devam ediyoruz
 
 // Controller ve Hizmet Tanımlamaları
 builder.Services.AddControllers();
-builder.Services.AddSingleton<OrderQueueService>();
+builder.Services.AddSingleton<OrderQueueService>(); // OrderQueueService servisini ekliyoruz
 
+// CORS Yapılandırması
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -30,7 +31,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// HTTPS yönlendirmesi ve yetkilendirme
+// HTTPS yönlendirmesi ve CORS middleware'i
 app.UseHttpsRedirection();
 app.UseCors("AllowAll"); // CORS middleware burada çalışır
 app.UseAuthorization();
@@ -38,29 +39,4 @@ app.UseAuthorization();
 // Controller’ları eşleştir
 app.MapControllers();
 
-// (İstersen özel test endpoint’in de kalabilir)
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
-
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
