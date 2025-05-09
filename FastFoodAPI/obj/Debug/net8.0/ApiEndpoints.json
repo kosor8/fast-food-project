@@ -1,0 +1,350 @@
+[
+  {
+    "ContainingType": "FastFoodAPI.Controllers.IslemController",
+    "Method": "SiparisleriListele",
+    "RelativePath": "api/Islem",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[FastFoodAPI.Models.Siparis, FastFoodAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.IslemController",
+    "Method": "SiparisOlustur",
+    "RelativePath": "api/Islem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "yeniSiparis",
+        "Type": "FastFoodAPI.Models.Siparis",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.IslemController",
+    "Method": "SiparisDurumuGuncelle",
+    "RelativePath": "api/Islem/{siparisId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "siparisId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "yeniDurum",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.IslemController",
+    "Method": "SiparisGetir",
+    "RelativePath": "api/Islem/{siparisId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "siparisId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FastFoodAPI.Models.Siparis",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.SepetController",
+    "Method": "SepetiListele",
+    "RelativePath": "api/Sepet",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[FastFoodAPI.Models.SepetOgeleri, FastFoodAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.SepetController",
+    "Method": "SepeteEkle",
+    "RelativePath": "api/Sepet",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "yeniUrun",
+        "Type": "FastFoodAPI.Models.SepetOgeleri",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.SepetController",
+    "Method": "SepetiTemizle",
+    "RelativePath": "api/Sepet",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.SepetController",
+    "Method": "SepetUrunSil",
+    "RelativePath": "api/Sepet/{urunId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "urunId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.SepetController",
+    "Method": "SepetToplamFiyati",
+    "RelativePath": "api/Sepet/toplamfiyat",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Decimal",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.SiparisController",
+    "Method": "SiparisleriListele",
+    "RelativePath": "api/Siparis",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[FastFoodAPI.Models.Siparis, FastFoodAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.SiparisController",
+    "Method": "SiparisOlustur",
+    "RelativePath": "api/Siparis",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "yeniSiparis",
+        "Type": "FastFoodAPI.Models.Siparis",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.SiparisController",
+    "Method": "SiparisGetir",
+    "RelativePath": "api/Siparis/{siparisId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "siparisId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FastFoodAPI.Models.Siparis",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.SiparisController",
+    "Method": "SiparisDurumuGuncelle",
+    "RelativePath": "api/Siparis/{siparisId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "siparisId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "yeniDurum",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.UrunController",
+    "Method": "UrunleriListele",
+    "RelativePath": "api/Urun",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kategori",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[FastFoodAPI.Models.Urun, FastFoodAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.UrunController",
+    "Method": "UrunEkle",
+    "RelativePath": "api/Urun",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "yeniUrun",
+        "Type": "FastFoodAPI.Models.Urun",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.UrunController",
+    "Method": "UrunGuncelle",
+    "RelativePath": "api/Urun/{urunId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "urunId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "guncellenmisUrun",
+        "Type": "FastFoodAPI.Models.Urun",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.UrunController",
+    "Method": "UrunSil",
+    "RelativePath": "api/Urun/{urunId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "urunId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodAPI.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[FastFoodAPI.WeatherForecast, FastFoodAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
