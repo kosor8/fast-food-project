@@ -50,7 +50,6 @@
     </style>
 </head>
 <body>
-    <!-- Giriş Ekranı -->
     <div class="container" id="loginContainer">
         <h2>FastFoodAPI - Giriş</h2>
         <form id="loginForm">
@@ -70,25 +69,28 @@
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
 
-            const response = await fetch('http://localhost:5067/kullanici/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    Eposta: email,
-                    Parola: password
-                })
-            });
-
             const messageDiv = document.getElementById('loginMessage');
 
             try {
+                const response = await fetch('http://localhost:5067/kullanici/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        Eposta: email,
+                        Parola: password
+                    })
+                });
+
                 const result = await response.json();
 
                 if (response.ok) {
                     messageDiv.style.color = 'green';
                     messageDiv.textContent = typeof result === 'string' ? result : result.message || 'Giriş başarılı!';
+
+                    // ✅ localStorage'a e-posta kaydet
+                    localStorage.setItem("oturumEposta", email);
 
                     // 2 saniye sonra yönlendir
                     setTimeout(() => {
@@ -98,12 +100,10 @@
                     messageDiv.style.color = 'red';
                     messageDiv.textContent = result.message || 'Bir hata oluştu.';
                 }
-
             } catch (err) {
                 messageDiv.style.color = 'red';
                 messageDiv.textContent = 'Sunucudan beklenmeyen bir yanıt alındı.';
             }
-            
         });
     </script>
 </body>

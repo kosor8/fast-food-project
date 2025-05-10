@@ -1,16 +1,35 @@
 const API_BASE = "http://localhost:5067/orders";
 
-document.addEventListener("DOMContentLoaded", () => {
-  tumSiparisleriGetir();
-  siradakiSiparisiGoster();
-  setInterval(() => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const eposta = localStorage.getItem("oturumEposta");
+  if (!eposta) {
+    alert("Lütfen önce giriş yapınız.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  try {
+    const response = await fetch(`http://localhost:5067/kullanici/isim?eposta=${eposta}`);
+    const data = await response.json();
+    const customerName = data.ad; // İsim alındı
+
+    // customerName doğrudan sipariş eklerken kullanılacak
     tumSiparisleriGetir();
     siradakiSiparisiGoster();
-  }, 3000);
+    setInterval(() => {
+      tumSiparisleriGetir();
+      siradakiSiparisiGoster();
+    }, 3000);
+
+  } catch (err) {
+    console.error("Kullanıcı adı alınamadı:", err);
+  }
 });
 
+// Sipariş ekleme fonksiyonu
 async function siparisEkle() {
-  const customerName = document.getElementById("customerName").value;
+  const eposta = localStorage.getItem("oturumEposta");
+  const customerName = await getCustomerNameFromEmail(eposta); // Müşteri adı e-posta ile alınıyor
   const orderContent = document.getElementById("orderContent").value;
 
   if (!customerName || !orderContent) {
@@ -26,7 +45,6 @@ async function siparisEkle() {
     });
 
     if (response.ok) {
-      document.getElementById("customerName").value = "";
       document.getElementById("orderContent").value = "";
       tumSiparisleriGetir();
       siradakiSiparisiGoster();
@@ -36,6 +54,17 @@ async function siparisEkle() {
   } catch (error) {
     console.error("HATA:", error);
     alert("Sunucuya bağlanılamadı.");
+  }
+}
+
+async function getCustomerNameFromEmail(eposta) {
+  try {
+    const response = await fetch(`http://localhost:5067/kullanici/isim?eposta=${eposta}`);
+    const data = await response.json();
+    return data.ad;  // İsim dönülüyor
+  } catch (err) {
+    console.error("Kullanıcı adı alınamadı:", err);
+    return null;
   }
 }
 
@@ -78,55 +107,47 @@ async function siradakiSiparisiGoster() {
 }
 
 async function siparisHazirla() {
-    try {
-      // Sıradaki siparişi çek
-      const response = await fetch(`${API_BASE}/next`);
-      if (!response.ok) {
-        alert("Hazırlanacak sipariş yok.");
-        return;
-      }
-  
-      const order = await response.json();
-  
-      // Sipariş bilgilerini göster
-      document.getElementById("hazirlananSiparis").innerText = `#${order.id} - ${order.customerName}: ${order.content} hazırlanıyor...`;
-  
-      // Slider sıfırla
-      document.getElementById("hazirlikSlider").value = 0;
-      document.getElementById("hazirlikSlider").disabled = false;
-      document.getElementById("tamamlaBtn").disabled = true;
-  
-      // ✅ Sıradaki siparişi HEMEN güncelle
-      // Bu sayede aynı anda iki farklı sipariş görüntülenmiş olacak
-      await fetch(`${API_BASE}/startPreparing`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: order.id })  // Backend bu ID'yi sıradan çıkarıp hazırlama aşamasına almalı
-      });
-  
-      siradakiSiparisiGoster(); // Sırayı güncelle
-  
-      // Slider animasyonu
-      let progress = 0;
-      const interval = setInterval(() => {
-        progress += 10;
-        document.getElementById("hazirlikSlider").value = progress;
-  
-        if (progress < 100) {
-          document.getElementById("hazirlananSiparis").innerText =
-            `#${order.id} - ${order.customerName}: ${order.content} hazırlanıyor...`;
-        } else {
-          clearInterval(interval);
-          document.getElementById("hazirlananSiparis").innerText =
-            `#${order.id} - ${order.customerName}: ${order.content} hazırlandı ✅`;
-          document.getElementById("tamamlaBtn").disabled = false;
-        }
-      }, 500);
-    } catch (err) {
-      console.error("Hazırlama hatası:", err);
+  try {
+    const response = await fetch(`${API_BASE}/next`);
+    if (!response.ok) {
+      alert("Hazırlanacak sipariş yok.");
+      return;
     }
+
+    const order = await response.json();
+    document.getElementById("hazirlananSiparis").innerText = `#${order.id} - ${order.customerName}: ${order.content} hazırlanıyor...`;
+
+    document.getElementById("hazirlikSlider").value = 0;
+    document.getElementById("hazirlikSlider").disabled = false;
+    document.getElementById("tamamlaBtn").disabled = true;
+
+    await fetch(`${API_BASE}/startPreparing`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: order.id })
+    });
+
+    siradakiSiparisiGoster();
+
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += 10;
+      document.getElementById("hazirlikSlider").value = progress;
+
+      if (progress < 100) {
+        document.getElementById("hazirlananSiparis").innerText =
+          `#${order.id} - ${order.customerName}: ${order.content} hazırlanıyor...`;
+      } else {
+        clearInterval(interval);
+        document.getElementById("hazirlananSiparis").innerText =
+          `#${order.id} - ${order.customerName}: ${order.content} hazırlandı ✅`;
+        document.getElementById("tamamlaBtn").disabled = false;
+      }
+    }, 500);
+  } catch (err) {
+    console.error("Hazırlama hatası:", err);
   }
-  
+}
 
 async function siparisTamamla() {
   try {

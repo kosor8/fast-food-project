@@ -8,29 +8,44 @@ namespace FastFoodAPI.Controllers
     [Route("[controller]")]
     public class KullaniciController : ControllerBase
     {
+        // Kullanıcı kayıt
         [HttpPost("register")]
-        public IActionResult Register(Kullanici kullanici)
+        public IActionResult KayitOl([FromBody] Kullanici yeniKullanici)
         {
-            if (KullaniciVeritabani.EpostaVarMi(kullanici.Eposta))
-            {
-                return BadRequest(new { message = "Bu e-posta ile kayıt zaten mevcut." });
-            }
+            var mevcut = KullaniciVeritabani.KullanicilariGetir()
+                .Any(k => k.Eposta == yeniKullanici.Eposta);
 
-            KullaniciVeritabani.KullaniciEkle(kullanici);
+            if (mevcut)
+                return BadRequest(new { message = "Bu e-posta ile zaten kayıt olunmuş." });
+
+            KullaniciVeritabani.KullaniciEkle(yeniKullanici);
             return Ok(new { message = "Kayıt başarılı!" });
         }
 
+        // Kullanıcı giriş
         [HttpPost("login")]
-        public IActionResult Login([FromBody] Kullanici giris)
+        public IActionResult GirisYap([FromBody] Kullanici girisKullanici)
         {
-            var resultMessage = KullaniciVeritabani.GirisKontrol(giris.Eposta, giris.Parola);
+            var kullanici = KullaniciVeritabani.KullanicilariGetir()
+                .FirstOrDefault(k => k.Eposta == girisKullanici.Eposta && k.Parola == girisKullanici.Parola);
 
-            if (resultMessage == "Giriş başarılı.")
-            {
-                return Ok(new { message = resultMessage });
-            }
+            if (kullanici == null)
+                return Unauthorized(new { message = "Geçersiz e-posta veya parola." });
 
-            return BadRequest(new { message = resultMessage });
+            return Ok(new { message = "Giriş başarılı!" });
+        }
+
+        // E-posta ile isim alma
+        [HttpGet("isim")]
+        public IActionResult KullaniciAdiniGetir([FromQuery] string eposta)
+        {
+            var kullanici = KullaniciVeritabani.KullanicilariGetir()
+                .FirstOrDefault(k => k.Eposta == eposta);
+
+            if (kullanici == null)
+                return NotFound(new { message = "Kullanıcı bulunamadı." });
+
+            return Ok(new { ad = kullanici.Ad });
         }
     }
 }
