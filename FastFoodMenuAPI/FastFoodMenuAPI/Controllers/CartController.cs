@@ -1,6 +1,6 @@
-﻿using FastFoodMenuAPI.Models;
-using FastFoodMenuAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using FastFoodMenuAPI.Models;
+using FastFoodMenuAPI.Services;
 
 namespace FastFoodMenuAPI.Controllers
 {
@@ -15,29 +15,42 @@ namespace FastFoodMenuAPI.Controllers
             _cartService = new CartService();
         }
 
-
+        // Sepeti getir (ürün adı, fiyat ve toplam)
         [HttpGet]
-        public ActionResult<List<CartItem>> GetCart()
+        public ActionResult<CartSummary> GetCart()
         {
-            var cartItems = _cartService.GetCartItems();
-            return Ok(cartItems);
+            var items = _cartService.GetCartItems();
+
+            var summary = new CartSummary
+            {
+                Items = items.Select(i => new SimpleCartItem
+                {
+                    ProductId = i.ProductId,
+                    ProductName = i.ProductName,
+                    Price = i.Price * i.Quantity,
+                    Quantity = i.Quantity
+                }).ToList(),
+                TotalPrice = items.Sum(i => i.Price * i.Quantity)
+            };
+
+            return Ok(summary);
         }
 
-        // Ürün sepete ekle
-        [HttpPost("{productId}")]
-        public ActionResult AddToCart(int productId)
+        // Sepete ürün ekle
+        [HttpPost("add/{productId}")]
+        public IActionResult AddToCart(int productId)
         {
             _cartService.AddToCart(productId);
-            return Ok();
+            return Ok("Ürün sepete eklendi.");
         }
 
-        // Ürünü sepetteki ürünlerden sil
-        [HttpDelete("{productId}")]
-        public ActionResult RemoveFromCart(int productId)
+        // Sepetten ürün çıkar
+        [HttpDelete("remove/{productId}")]
+        public IActionResult RemoveFromCart(int productId)
         {
             _cartService.RemoveFromCart(productId);
-            return Ok();
+            return Ok("Ürün sepetten çıkarıldı.");
         }
-
     }
 }
+
