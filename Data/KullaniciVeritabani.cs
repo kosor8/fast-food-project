@@ -27,9 +27,22 @@ namespace FastFoodAPI.Data
             return KullanicilariGetir().Any(k => k.Eposta == eposta);
         }
 
-        public static bool GirisKontrol(string eposta, string parola)
+        public static string GirisKontrol(string eposta, string parola)
         {
-            return KullanicilariGetir().Any(k => k.Eposta == eposta && k.Parola == parola);
+            var kullanicilar = KullanicilariGetir();
+            var kullanici = kullanicilar.FirstOrDefault(k => k.Eposta == eposta);
+
+            if (kullanici == null)
+            {
+                return "Kayıtlı kullanıcı bulunamadı. Lütfen kayıt olunuz.";
+            }
+
+            if (kullanici.Parola != parola)
+            {
+                return "Şifre hatalı.";
+            }
+
+            return "Giriş başarılı.";
         }
     }
 }

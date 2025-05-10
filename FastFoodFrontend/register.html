@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FastFoodAPI - Giriş</title>
+    <title>FastFoodAPI - Kayıt</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,60 +50,58 @@
     </style>
 </head>
 <body>
-    <!-- Giriş Ekranı -->
-    <div class="container" id="loginContainer">
-        <h2>FastFoodAPI - Giriş</h2>
-        <form id="loginForm">
-            <input type="email" id="loginEmail" placeholder="E-posta" required><br>
-            <input type="password" id="loginPassword" placeholder="Parola" required><br>
-            <button type="submit">Giriş Yap</button>
+    <!-- Kayıt Ekranı -->
+    <div class="container" id="registerContainer">
+        <h2>FastFoodAPI - Kayıt</h2>
+        <form id="registerForm">
+            <input type="text" id="registerName" placeholder="İsim" required><br>
+            <input type="email" id="registerEmail" placeholder="E-posta" required><br>
+            <input type="password" id="registerPassword" placeholder="Parola" required><br>
+            <button type="submit">Kayıt Ol</button>
         </form>
-        <div class="message" id="loginMessage"></div>
-        <p>Hesabınız yok mu? <a href="register.html">Kayıt Olun</a></p>
+        <div class="message" id="registerMessage"></div>
+        <p>Zaten hesabınız var mı? <a href="login.html">Giriş Yapın</a></p>
     </div>
 
     <script>
-        // Giriş yapma işlevi
-        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+        // Kayıt olma işlevi
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-
-            const response = await fetch('http://localhost:5067/kullanici/login', {
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            
+            const response = await fetch('http://localhost:5067/kullanici/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
+                    Ad: name,
                     Eposta: email,
                     Parola: password
                 })
             });
 
-            const messageDiv = document.getElementById('loginMessage');
-
+            const messageDiv = document.getElementById('registerMessage');
             try {
                 const result = await response.json();
-
                 if (response.ok) {
                     messageDiv.style.color = 'green';
-                    messageDiv.textContent = typeof result === 'string' ? result : result.message || 'Giriş başarılı!';
+                    messageDiv.textContent = 'Kayıt başarılı!';
 
-                    // 2 saniye sonra yönlendir
+                    // 2 saniye bekleyip giriş ekranına geç
                     setTimeout(() => {
-                        window.location.href = 'personel.html';
+                        window.location.href = 'login.html';
                     }, 2000);
                 } else {
                     messageDiv.style.color = 'red';
                     messageDiv.textContent = result.message || 'Bir hata oluştu.';
                 }
-
             } catch (err) {
                 messageDiv.style.color = 'red';
                 messageDiv.textContent = 'Sunucudan beklenmeyen bir yanıt alındı.';
             }
-            
         });
     </script>
 </body>

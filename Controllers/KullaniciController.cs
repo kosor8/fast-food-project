@@ -13,21 +13,24 @@ namespace FastFoodAPI.Controllers
         {
             if (KullaniciVeritabani.EpostaVarMi(kullanici.Eposta))
             {
-                return BadRequest("Bu e-posta ile kayıt zaten mevcut.");
+                return BadRequest(new { message = "Bu e-posta ile kayıt zaten mevcut." });
             }
 
             KullaniciVeritabani.KullaniciEkle(kullanici);
-            return Ok("Kayıt başarılı.");
+            return Ok(new { message = "Kayıt başarılı!" });
         }
 
         [HttpPost("login")]
         public IActionResult Login([FromBody] Kullanici giris)
         {
-            if (KullaniciVeritabani.GirisKontrol(giris.Eposta, giris.Parola))
+            var resultMessage = KullaniciVeritabani.GirisKontrol(giris.Eposta, giris.Parola);
+
+            if (resultMessage == "Giriş başarılı.")
             {
-                return Ok("Giriş başarılı.");
+                return Ok(new { message = resultMessage });
             }
-            return NotFound("Kullanıcı bulunamadı.");
+
+            return BadRequest(new { message = resultMessage });
         }
     }
 }
