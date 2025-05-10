@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menüler - Burgery Co&copy;</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="main_style.css" />
+    <style>
+        .menu-container {
+            padding: 100px 50px;
+            background-color: #383e42;
+            background-image: url('images/funnyburgers.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+            .menu-container::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(56, 62, 66, 0.85);
+                z-index: 1;
+            }
+
+        .menu-title, .menu-categories, .menu-grid {
+            position: relative;
+            z-index: 2;
+        }
+
+        .menu-title {
+            text-align: center;
+            color: #ffc107;
+            font-size: 4em;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .category-btn {
+            padding: 15px 30px;
+            background-color: #ffc107;
+            border: none;
+            border-radius: 25px;
+            color: #383e42;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .category-btn:hover {
+                background-color: #e3a400;
+                transform: scale(1.05);
+            }
+
+            .category-btn.active {
+                background-color: #e3a400;
+                transform: scale(1.05);
+                box-shadow: 0 0 10px rgba(227, 164, 0, 0.5);
+            }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .menu-item:hover {
+                transform: translateY(-5px);
+            }
+
+            .menu-item img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item-title {
+            font-size: 1.5em;
+            color: #383e42;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+
+        .menu-item-price {
+            color: #605218;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .menu-item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .add-to-cart {
+            background-color: #ffc107;
+            color: #383e42;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .add-to-cart:hover {
+                background-color: #e3a400;
+            }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            color: #ffc107;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .category-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="sounds/waiting.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="header-container">
+        <div class="header-content">
+            <img src="images/burgery.png" alt="Logo" class="header-logo-special" />
+
+            <nav class="nav-links">
+                <a href="main2.html">Burgery</a>
+                <a href="menu.html">Menüler</a>
+                <a href="#">İletişim</a>
+                <a href="#">Konum</a>
+            </nav>
+
+            <div class="header-right">
+                <div class="cart-icon">[Sepet İkonu]</div>
+                <div class="auth-links">
+                    <a href="#">Giriş Yap</a> |
+                    <a href="#">Kayıt Ol</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bilgi-seridi">
+        <p>
+            Haftanın Her Günü 10:00 - 22:00 Açığız | Pazartesi Günleri Kapalıyız | Happy Hour: 15:00 - 17:00 Arası %30 İndirim!
+        </p>
+    </div>
+
+    <div class="menu-container">
+        <h1 class="menu-title">Menümüz</h1>
+
+        <div class="menu-categories">
+            <button class="category-btn">Tümü</button>
+            <button class="category-btn">Burgerler</button>
+            <button class="category-btn">Yan Ürünler</button>
+            <button class="category-btn">İçecekler</button>
+            <button class="category-btn">Tatlılar</button>
+        </div>
+
+        <div class="menu-grid">
+            <!-- Burger Örnekleri -->
+            <div class="menu-item burger">
+                <img src="images/burgers/inferno.jpg" alt="Inferno Burger">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Inferno Burger</h3>
+                    <p class="menu-item-description">Alevde pişirilmiş dana eti, erimiş peynirler, jalapeno ve özel soslar</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺189.90</span>
+                        <button class="add-to-cart" data-product-id="101">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item burger">
+                <img src="images/burgers/gurme.jpg" alt="Gurme Umami Burger">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Gurme Umami Burger</h3>
+                    <p class="menu-item-description">Trüflü aioli, kızarmış mantar ve özel soslarla</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺199.90</span>
+                        <button class="add-to-cart" >Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item burger">
+                <img src="images/burgers/tavuk.jpg" alt="Klasik Tavuk Burger">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Burgeri</h3>
+                    <p class="menu-item-description">Meşhur</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺999.99</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item burger">
+                <img src="images/burgers/klasik.jpg" alt="Double Cheeseburger">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Double Cheeseburger</h3>
+                    <p class="menu-item-description">İki kat dana eti, çift cheddar peyniri, özel sos</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺179.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item burger">
+                <img src="images/burgers/klasik.jpg" alt="Mega Burger">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Mega Burger</h3>
+                    <p class="menu-item-description">Üç kat dana eti, bacon, cheddar, özel sos</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺229.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yan Ürünler -->
+            <div class="menu-item yan-urun">
+                <img src="images/burgers/klasik.jpg" alt="Patates Kızartması">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Patates Kızartması</h3>
+                    <p class="menu-item-description">Çıtır çıtır, baharatlı patates kızartması</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺49.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item yan-urun">
+                <img src="images/burgers/klasik.jpg" alt="Soğan Halkası">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Soğan Halkası</h3>
+                    <p class="menu-item-description">Çıtır çıtır, baharatlı soğan halkası</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺59.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item yan-urun">
+                <img src="images/burgers/klasik.jpg" alt="Nugget">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Nugget (6'lı)</h3>
+                    <p class="menu-item-description">Çıtır tavuk nugget, özel sos ile</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺69.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item yan-urun">
+                <img src="images/burgers/klasik.jpg" alt="Mozzarella Çubukları">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Mozzarella Çubukları</h3>
+                    <p class="menu-item-description">Çıtır kaplamalı, erimiş mozzarella</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺79.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- İçecekler -->
+            <div class="menu-item icecek">
+                <img src="images/burgers/klasik.jpg" alt="Meyve Kokteyli">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Meyve Kokteyli</h3>
+                    <p class="menu-item-description">Taze meyvelerle hazırlanmış özel kokteyl</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺59.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item icecek">
+                <img src="images/burgers/klasik.jpg" alt="Milkshake">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Milkshake</h3>
+                    <p class="menu-item-description">Çikolatalı/Vanilyalı/Çilekli</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺49.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item icecek">
+                <img src="images/burgers/klasik.jpg" alt="Limonata">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Ev Yapımı Limonata</h3>
+                    <p class="menu-item-description">Taze sıkılmış limon, nane yaprakları</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺39.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item icecek">
+                <img src="images/burgers/klasik.jpg" alt="Smoothie">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Meyve Smoothie</h3>
+                    <p class="menu-item-description">Karışık meyve, yoğurt ve bal</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺54.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tatlılar -->
+            <div class="menu-item tatli">
+                <img src="images/burgers/klasik.jpg" alt="Çikolatalı Sufle">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Çikolatalı Sufle</h3>
+                    <p class="menu-item-description">Sıcak servis edilen, akışkan çikolatalı sufle</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺69.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item tatli">
+                <img src="images/burgers/klasik.jpg" alt="Cheesecake">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">New York Cheesecake</h3>
+                    <p class="menu-item-description">Krem peynirli, frambuaz soslu</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺79.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item tatli">
+                <img src="images/burgers/klasik.jpg" alt="Tiramisu">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Tiramisu</h3>
+                    <p class="menu-item-description">İtalyan usulü, kahve ve mascarpone</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺74.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-item tatli">
+                <img src="images/burgers/klasik.jpg" alt="Dondurma">
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">Dondurma (3 Top)</h3>
+                    <p class="menu-item-description">Çikolatalı/Vanilyalı/Çilekli</p>
+                    <div class="menu-item-footer">
+                        <span class="menu-item-price">₺49.90</span>
+                        <button class="add-to-cart">Sepete Ekle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Hakkımızda -->
+            <div class="footer-section about">
+                <img src="images/burgery.png" alt="Logo" class="logo" />
+                <h3 class="footer-baslik">Hakkımızda</h3>
+                <p>
+                    Burgery, M.Ö 7600'den beri hizmetinizde
+                </p>
+            </div>
+
+            <!-- İletişim -->
+            <div class="footer-section contact">
+                <img style="width: 310px;" src="images/footer-space.png" />
+                <h3 class="footer-baslik">İletişim</h3>
+                <ul>
+                    <li>📞 +90 530 332 72 08</li>
+                    <li>✉️ 032390049@ogr.uludag.edu.tr</li>
+                    <li>📍 Yıldırım / Bursa</li>
+                </ul>
+            </div>
+
+            <!-- Hızlı Linkler -->
+            <div class="footer-section links">
+                <img style="width: 310px;" src="images/footer-space.png" />
+                <h3 class="footer-baslik">Hızlı Linkler</h3>
+                <ul>
+                    <li><a href="#">Menü</a></li>
+                    <li><a href="#">Sipariş Ver</a></li>
+                    <li><a href="#">Kampanyalar</a></li>
+                    <li><a href="#">İletişim</a></li>
+                    <li><a href="#">SSS</a></li>
+                </ul>
+            </div>
+
+            <!-- Sosyal Medya -->
+            <div class="footer-section social">
+                <img style="width: 310px;" src="images/footer-space.png" />
+                <h3 class="footer-baslik">Bizi Takip Edin</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/ozanaydinw/"><img src="images/footer/instagram.jpg" alt="Instagram" />
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Müziği otomatik başlat
+            const music = document.getElementById('backgroundMusic');
+            music.volume = 0.5; // Ses seviyesini %50'ye ayarla
+            music.play().catch(function (error) {
+                console.log("Müzik otomatik başlatılamadı:", error);
+            });
+
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const menuItems = document.querySelectorAll('.menu-item');
+
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Aktif buton stilini güncelle
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const category = this.textContent.toLowerCase();
+
+                    menuItems.forEach(item => {
+                        if (category === 'tümü') {
+                            item.style.display = 'block';
+                        } else {
+                            if (item.classList.contains(category)) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+
+            // Sayfa yüklendiğinde "Tümü" kategorisini seç
+            categoryButtons[0].click();
+        });
+        // Sepete Ekle Butonları ve İşlevi
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = this.dataset.productId;
+                addToCart(productId);
+            });
+        });
+        async function addToCart(productId) {
+            console.log('Sepete ekle tıklandı', productId);
+            try {
+                const response = await fetch(`https://localhost:7102/api/Cart/${productId}`, { // Doğru template literal kullanımı
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    // body kısmına artık productId göndermiyoruz, URL'de yer alıyor
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Ürün sepete eklendi:', data);
+                    // ...
+                } else {
+                    console.error('Sepete ekleme başarısız oldu:', response.status);
+                    // ...
+                }
+            } catch (error) {
+                console.error('Bir hata oluştu:', error);
+                // ...
+            }
+        }
+    </script>
+</body>
+</html> 
