@@ -32,7 +32,7 @@ namespace FastFoodMenuAPI.Services
                         ProductName = product.Name,
                         Price = product.Price,
                         Quantity = 1,
-                        ImageUrl = product.ImageUrl
+                        
                     });
                 }
             }
