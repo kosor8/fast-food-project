@@ -1,0 +1,61 @@
+/* Slider genel stil: konumlama ve taşmaları gizleme */
+.slider {
+  position: relative;
+  overflow: hidden; /* Taşan slaytları gizle */
+  max-width: 800px; /* İsteğe bağlı genişlik ayarı */
+  margin: auto; /* Ortalamak için */
+}
+
+/* Slaytların yatay sıralanması için esnek konteyner */
+.slides-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Geçiş animasyonu:contentReference[oaicite:6]{index=6} */
+}
+
+/* Her bir slayt: tam genişlikte, esnek konteyner içi */
+.slide {
+  min-width: 100%; /* Her slayt konteyner genişliğinin %100'ü kadar yer alır */
+  display: flex; /* Resim ve metin yan yana */
+  background-color: white;
+  border-top-right-radius: 20px; /* Sağ üst köşe yuvarlatma:contentReference[oaicite:7]{index=7} */
+  border-bottom-right-radius: 20px; /* Sağ alt köşe yuvarlatma */
+  overflow: hidden; /* Yuvarlatma dışında kalanları gizle */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+}
+
+/* Slayt resmi sol yarıda tam kaplamalı */
+.slide img {
+  width: 50%;
+  object-fit: cover;
+}
+
+/* Slayt metni sağ yarıda */
+.slide-text {
+  padding: 20px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* İleri/Geri butonları: slider container içinde ortalanır */
+.slider .prev,
+.slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  /* Butonların konumu */
+}
+.slider .prev {
+  left: 10px;
+}
+.slider .next {
+  right: 10px;
+}
