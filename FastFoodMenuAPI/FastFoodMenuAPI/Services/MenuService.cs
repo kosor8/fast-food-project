@@ -19,39 +19,39 @@ namespace FastFoodMenuAPI.Services
                             Name = "Inferno Burger",
                             Price = 189.90m,
                             Description = "Alevde pişirilmiş dana eti, erimiş peynirler, jalapeno ve özel soslar",
-                            ImageUrl = "images/burgers/inferno.jpg"
+
                         },
                         new ProductNode
                         {
                             Id = 102,
-                            Name = "Gurme Umami Burger",
+                            Name = "Gurme Umami",
                             Price = 199.90m,
                             Description = "Trüflü aioli, kızarmış mantar ve özel soslarla",
-                            ImageUrl = "images/burgers/gurme.jpg"
+
                         },
                         new ProductNode
                         {
                             Id = 103,
-                            Name = "Bedezin Burgeri",
-                            Price = 999.99m,
-                            Description = "Meşhur",
-                            ImageUrl = "images/burgers/tavuk.jpg"
+                            Name = "Double Cheeseburger",
+                            Price = 179.90m,
+                            Description = "İki kat dana eti, çift cheddar peyniri, özel sos",
+
                         },
                         new ProductNode
                         {
                             Id = 104,
-                            Name = "Double Cheeseburger",
-                            Price = 179.90m,
-                            Description = "İki kat dana eti, çift cheddar peyniri, özel sos",
-                            ImageUrl = "images/burgers/klasik.jpg"
+                            Name = "Mega Burger",
+                            Price = 229.90m,
+                            Description = "Üç kat dana eti, bacon, cheddar, özel sos",
+
                         },
                         new ProductNode
                         {
                             Id = 105,
-                            Name = "Mega Burger",
-                            Price = 229.90m,
-                            Description = "Üç kat dana eti, bacon, cheddar, özel sos",
-                            ImageUrl = "images/burgers/klasik.jpg"
+                            Name = "Klasik Tavuk Burger",
+                            Price = 169.90m,
+                            Description = "Çıtır tavuk fileto, marul, mayonez",
+
                         }
                     }
                 },
@@ -67,7 +67,7 @@ namespace FastFoodMenuAPI.Services
                             Name = "Patates Kızartması",
                             Price = 49.90m,
                             Description = "Çıtır çıtır, baharatlı patates kızartması",
-                            ImageUrl = "images/sides/patates.jpg"
+
                         },
                         new ProductNode
                         {
@@ -75,7 +75,7 @@ namespace FastFoodMenuAPI.Services
                             Name = "Soğan Halkası",
                             Price = 59.90m,
                             Description = "Çıtır çıtır, baharatlı soğan halkası",
-                            ImageUrl = "images/sides/sogan.jpg"
+
                         },
                         new ProductNode
                         {
@@ -83,7 +83,7 @@ namespace FastFoodMenuAPI.Services
                             Name = "Nugget (6'lı)",
                             Price = 69.90m,
                             Description = "Çıtır tavuk nugget, özel sos ile",
-                            ImageUrl = "images/sides/nugget.jpg"
+
                         },
                         new ProductNode
                         {
@@ -91,7 +91,15 @@ namespace FastFoodMenuAPI.Services
                             Name = "Mozzarella Çubukları",
                             Price = 79.90m,
                             Description = "Çıtır kaplamalı, erimiş mozzarella",
-                            ImageUrl = "images/sides/mozzarella.jpg"
+
+                        },
+                        new ProductNode
+                        {
+                            Id = 205,
+                            Name = "Sweet Potato Fries",
+                            Price = 54.90m,
+                            Description = "Tatlı patates kızartması, özel sos ile",
+
                         }
                     }
                 },
@@ -104,34 +112,42 @@ namespace FastFoodMenuAPI.Services
                         new ProductNode
                         {
                             Id = 301,
-                            Name = "Meyve Kokteyli",
-                            Price = 59.90m,
-                            Description = "Taze meyvelerle hazırlanmış özel kokteyl",
-                            ImageUrl = "images/drinks/kokteyl.jpg"
+                            Name = "Kola",
+                            Price = 29.90m,
+                            Description = "Soğuk içecek, 330ml",
+
                         },
                         new ProductNode
                         {
                             Id = 302,
-                            Name = "Milkshake",
-                            Price = 49.90m,
-                            Description = "Çikolatalı/Vanilyalı/Çilekli",
-                            ImageUrl = "images/drinks/milkshake.jpg"
+                            Name = "Ayran",
+                            Price = 24.90m,
+                            Description = "Ev yapımı ayran,330ml",
+
                         },
                         new ProductNode
                         {
                             Id = 303,
-                            Name = "Ev Yapımı Limonata",
-                            Price = 39.90m,
-                            Description = "Taze sıkılmış limon, nane yaprakları",
-                            ImageUrl = "images/drinks/limonata.jpg"
+                            Name = "Meyve Kokteyli",
+                            Price = 59.90m,
+                            Description = "Taze meyvelerle hazırlanmış özel kokteyl",
+
                         },
                         new ProductNode
                         {
                             Id = 304,
-                            Name = "Meyve Smoothie",
-                            Price = 54.90m,
-                            Description = "Karışık meyve, yoğurt ve bal",
-                            ImageUrl = "images/drinks/smoothie.jpg"
+                            Name = "Milkshake",
+                            Price = 49.90m,
+                            Description = " Çikolatalı/Vanilyalı/Çilekli",
+
+                        },
+                        new ProductNode
+                        {
+                            Id = 305,
+                            Name = "Ev Yapımı Limonata",
+                            Price = 39.90m,
+                            Description = "Taze sıkılmış limon, nane yaprakları",
+
                         }
                     }
                 },
@@ -147,31 +163,40 @@ namespace FastFoodMenuAPI.Services
                             Name = "Çikolatalı Sufle",
                             Price = 69.90m,
                             Description = "Sıcak servis edilen, akışkan çikolatalı sufle",
-                            ImageUrl = "images/desserts/sufle.jpg"
+
                         },
                         new ProductNode
                         {
                             Id = 402,
-                            Name = "New York Cheesecake",
-                            Price = 79.90m,
-                            Description = "Krem peynirli, frambuaz soslu",
-                            ImageUrl = "images/desserts/cheesecake.jpg"
+                            Name = "Dondurma",
+                            Price = 39.90m,
+                            Description = "Çikolatalı/Vanilyalı/Çilekli",
+
                         },
                         new ProductNode
                         {
                             Id = 403,
-                            Name = "Tiramisu",
-                            Price = 74.90m,
-                            Description = "İtalyan usulü, kahve ve mascarpone",
-                            ImageUrl = "images/desserts/tiramisu.jpg"
+                            Name = "New York Cheesecake",
+                            Price = 79.90m,
+                            Description = "Krem peynirli, frambuaz soslu",
+
                         },
                         new ProductNode
                         {
                             Id = 404,
-                            Name = "Dondurma (3 Top)",
-                            Price = 49.90m,
-                            Description = "Çikolatalı/Vanilyalı/Çilekli",
-                            ImageUrl = "images/desserts/dondurma.jpg"
+                            Name = "Tiramisu",
+                            Price = 74.90m,
+                            Description = "İtalyan usulü, kahve ve mascarpone",
+
+                        },
+                        new ProductNode
+                        {
+                            Id = 405,
+                            Name = "Browni",
+                            Price = 64.90m,
+                            Description = "Çikolatalı, fındıklı browni",
+
+
                         }
                     }
                 }
