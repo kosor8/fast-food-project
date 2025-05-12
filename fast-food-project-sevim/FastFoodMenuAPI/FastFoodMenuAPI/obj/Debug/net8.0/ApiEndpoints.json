@@ -125,6 +125,22 @@
   },
   {
     "ContainingType": "FastFoodMenuAPI.Controllers.OrderController",
+    "Method": "CompleteOrder",
+    "RelativePath": "api/Order/complete-order/{orderId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodMenuAPI.Controllers.OrderController",
     "Method": "PlaceOrder",
     "RelativePath": "api/Order/place-order",
     "HttpMethod": "POST",

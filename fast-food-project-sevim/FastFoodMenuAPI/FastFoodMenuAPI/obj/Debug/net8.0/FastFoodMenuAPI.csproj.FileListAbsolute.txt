@@ -106,3 +106,4 @@ C:\Users\Acer\Desktop\Yazılım\FRONT-BACK end\Veri Yapıları\fast-food-project
 C:\Users\Acer\Desktop\Yazılım\FRONT-BACK end\Veri Yapıları\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFood.AF80C301.Up2Date
 C:\Users\Acer\Desktop\Yazılım\FRONT-BACK end\Veri Yapıları\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.genruntimeconfig.cache
 C:\Users\Acer\Desktop\Yazılım\FRONT-BACK end\Veri Yapıları\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\ref\FastFoodMenuAPI.dll
+C:\Users\Acer\Desktop\Yazılım\FRONT-BACK end\Veri Yapıları\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\orders.json
