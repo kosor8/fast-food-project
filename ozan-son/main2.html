@@ -34,6 +34,7 @@
           <div class="cart-icon"><a href="cart.html"><img src="images/sepet.png"></a></div>
           <div class="auth-links">
             <a href="login.html" id="auth-link">Giriş Yap</a>
+            <a href="login.html" id="logout-link" >Çıkış Yap</a>
           </div>
         </div>
       </div>
@@ -257,36 +258,48 @@
     const animasyonElementleri = document.querySelectorAll(".animasyon-sol, .animasyon-sag");
     animasyonElementleri.forEach((el) => observer.observe(el));
   });
-  // document.addEventListener("click", function oncePlay() {
-  //   const ses = document.getElementById("intro-sound");
-  //   const dahaOnceCaldi = sessionStorage.getItem("sesCaldi");
 
-  //   if (!dahaOnceCaldi) {
-  //     ses.play();
-  //     sessionStorage.setItem("sesCaldi", "true");
-  //   }
+  // Ses açma kodu
+  document.addEventListener("click", function oncePlay() {
+    const ses = document.getElementById("intro-sound");
+    const dahaOnceCaldi = sessionStorage.getItem("sesCaldi");
 
-  //   document.removeEventListener("click", oncePlay);
-  // });
-
-  document.addEventListener("DOMContentLoaded", async () => {
-    const eposta = localStorage.getItem("oturumEposta");
-    if (!eposta) {
-      alert("Lütfen önce giriş yapınız.");
-      window.location.href = "login.html";
-      return;
+    if (!dahaOnceCaldi) {
+      ses.play();
+      sessionStorage.setItem("sesCaldi", "true");
     }
 
+    document.removeEventListener("click", oncePlay);
+
+    
+  });
+
+  // Kullanıcı adı alma ve gösterme
+  document.addEventListener("DOMContentLoaded", async () => {
+    const eposta = localStorage.getItem("oturumEposta");
+    const authLink = document.getElementById("auth-link");
+    const logoutLink = document.getElementById("logout-link");
+    
     try {
       const response = await fetch(`http://localhost:5067/kullanici/isim?eposta=${eposta}`);
   
       const customerName = await getCustomerNameFromEmail(eposta);
-      const authLink = document.getElementById("auth-link");
-
       if (customerName && authLink) {
         authLink.textContent = customerName;
         authLink.href = "#"; // İsteğe bağlı: başka sayfaya yönlenmesini engeller
+      } else {
+        // Kullanıcı giriş yapmamışsa
+        authLink.textContent = "Giriş Yap";
+        authLink.href = "login.html";
+        logoutLink.style.display = "none";  // Çıkış yap butonunu gizle
       }
+
+      // Çıkış yap butonuna tıklandığında yapılacak işlemler
+      logoutLink.addEventListener("click", function () {
+        localStorage.removeItem("oturumEposta");  // Oturum bilgisini temizle
+        sessionStorage.removeItem("sesCaldi");  // Ses çaldı bilgisi varsa temizle
+        window.location.href = "login.html";  // Giriş sayfasına yönlendir
+      });
 
     } catch (err) {
       console.error("Kullanıcı adı alınamadı:", err);
