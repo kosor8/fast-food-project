@@ -36,7 +36,12 @@ namespace FastFoodAPI.Controllers
             if (kullanici.Parola != girisKullanici.Parola)
                 return Unauthorized(new { message = "Parola hatalı." });
 
-            return Ok(new { message = "Giriş başarılı!" });
+            return Ok(new
+            {
+                message = "Giriş başarılı!",
+                ad = kullanici.Ad,
+                eposta = kullanici.Eposta
+            });
         }
 
         // E-posta ile isim alma
