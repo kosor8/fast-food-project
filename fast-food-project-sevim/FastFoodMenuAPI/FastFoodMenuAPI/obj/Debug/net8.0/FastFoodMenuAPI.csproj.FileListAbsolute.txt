@@ -107,3 +107,40 @@ C:\Users\Acer\Desktop\Yazılım\FRONT-BACK end\Veri Yapıları\fast-food-project
 C:\Users\Acer\Desktop\Yazılım\FRONT-BACK end\Veri Yapıları\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.genruntimeconfig.cache
 C:\Users\Acer\Desktop\Yazılım\FRONT-BACK end\Veri Yapıları\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\ref\FastFoodMenuAPI.dll
 C:\Users\Acer\Desktop\Yazılım\FRONT-BACK end\Veri Yapıları\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\orders.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\appsettings.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\orders.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\FastFoodMenuAPI.staticwebassets.endpoints.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\FastFoodMenuAPI.exe
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\FastFoodMenuAPI.deps.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\FastFoodMenuAPI.runtimeconfig.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\FastFoodMenuAPI.dll
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\FastFoodMenuAPI.pdb
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.csproj.AssemblyReference.cache
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.AssemblyInfoInputs.cache
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.AssemblyInfo.cs
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.csproj.CoreCompileInputs.cache
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.sourcelink.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\scopedcss\bundle\FastFoodMenuAPI.styles.css
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\staticwebassets\msbuild.FastFoodMenuAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\staticwebassets\msbuild.FastFoodMenuAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.FastFoodMenuAPI.props
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.FastFoodMenuAPI.props
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.FastFoodMenuAPI.props
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFood.AF80C301.Up2Date
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.dll
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\refint\FastFoodMenuAPI.dll
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.pdb
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\FastFoodMenuAPI.genruntimeconfig.cache
+C:\Users\USER\OneDrive\Masaüstü\fast-food-project\fast-food-project-sevim\FastFoodMenuAPI\FastFoodMenuAPI\obj\Debug\net8.0\ref\FastFoodMenuAPI.dll

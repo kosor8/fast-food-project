@@ -447,24 +447,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\USER\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Acer\\Desktop\\Yazılım\\FRONT-BACK end\\Veri Yapıları\\fast-food-project-sevim\\FastFoodMenuAPI\\FastFoodMenuAPI\\FastFoodMenuAPI.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\OneDrive\\Masaüstü\\fast-food-project\\fast-food-project-sevim\\FastFoodMenuAPI\\FastFoodMenuAPI\\FastFoodMenuAPI.csproj",
       "projectName": "FastFoodMenuAPI",
-      "projectPath": "C:\\Users\\Acer\\Desktop\\Yazılım\\FRONT-BACK end\\Veri Yapıları\\fast-food-project-sevim\\FastFoodMenuAPI\\FastFoodMenuAPI\\FastFoodMenuAPI.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Acer\\Desktop\\Yazılım\\FRONT-BACK end\\Veri Yapıları\\fast-food-project-sevim\\FastFoodMenuAPI\\FastFoodMenuAPI\\obj\\",
+      "projectPath": "C:\\Users\\USER\\OneDrive\\Masaüstü\\fast-food-project\\fast-food-project-sevim\\FastFoodMenuAPI\\FastFoodMenuAPI\\FastFoodMenuAPI.csproj",
+      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\USER\\OneDrive\\Masaüstü\\fast-food-project\\fast-food-project-sevim\\FastFoodMenuAPI\\FastFoodMenuAPI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
