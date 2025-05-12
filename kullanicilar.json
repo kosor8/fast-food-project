@@ -26,17 +26,12 @@
   },
   {
     "Ad": "test",
-    "Eposta": "test@gmail.com",
-    "Parola": "123"
-  },
-  {
-    "Ad": "semih",
-    "Eposta": "test31@gmail.com",
-    "Parola": "1234"
-  },
-  {
-    "Ad": "berat",
     "Eposta": "test43@gmail.com",
     "Parola": "123"
+  },
+  {
+    "Ad": "iremnaz",
+    "Eposta": "cankurtiremnaz@gmail.com",
+    "Parola": "777"
   }
 ]

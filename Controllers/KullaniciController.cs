@@ -26,11 +26,15 @@ namespace FastFoodAPI.Controllers
         [HttpPost("login")]
         public IActionResult GirisYap([FromBody] Kullanici girisKullanici)
         {
-            var kullanici = KullaniciVeritabani.KullanicilariGetir()
-                .FirstOrDefault(k => k.Eposta == girisKullanici.Eposta && k.Parola == girisKullanici.Parola);
+            var kullanicilar = KullaniciVeritabani.KullanicilariGetir();
+
+            var kullanici = kullanicilar.FirstOrDefault(k => k.Eposta == girisKullanici.Eposta);
 
             if (kullanici == null)
-                return Unauthorized(new { message = "Geçersiz e-posta veya parola." });
+                return NotFound(new { message = "E-postaya ait kayıt bulunamadı." });
+
+            if (kullanici.Parola != girisKullanici.Parola)
+                return Unauthorized(new { message = "Parola hatalı." });
 
             return Ok(new { message = "Giriş başarılı!" });
         }

@@ -47,6 +47,13 @@
             margin-top: 20px;
             font-size: 14px;
         }
+        .personel-button {
+            background-color: #f44336;
+            margin-top: 10px;
+        }
+        .personel-button:hover {
+            background-color: #e53935;
+        }
     </style>
 </head>
 <body>
@@ -57,49 +64,50 @@
             <input type="password" id="loginPassword" placeholder="Parola" required><br>
             <button type="submit">Giriş Yap</button>
         </form>
+        <button class="personel-button" onclick="window.location.href='personel_login.html'">Personel Girişi</button>
         <div class="message" id="loginMessage"></div>
         <p>Hesabınız yok mu? <a href="register.html">Kayıt Olun</a></p>
     </div>
 
     <script>
-        // Giriş yapma işlevi
+        const API_BASE = "http://localhost:5067/kullanici/login";
+
         document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
 
+            const response = await fetch(API_BASE, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Eposta: email,
+                    Parola: password
+                })
+            });
+
             const messageDiv = document.getElementById('loginMessage');
 
             try {
-                const response = await fetch('http://localhost:5067/kullanici/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        Eposta: email,
-                        Parola: password
-                    })
-                });
-
                 const result = await response.json();
 
                 if (response.ok) {
+                    localStorage.setItem("oturumEposta", email);
                     messageDiv.style.color = 'green';
                     messageDiv.textContent = typeof result === 'string' ? result : result.message || 'Giriş başarılı!';
-
-                    // ✅ localStorage'a e-posta kaydet
-                    localStorage.setItem("oturumEposta", email);
-
-                    // 2 saniye sonra yönlendir
+                    
+                    // 2 saniye sonra menu.html'e yönlendir
                     setTimeout(() => {
-                        window.location.href = 'personel.html';
+                        window.location.href = 'menu.html'; // Yönlendirme burası
                     }, 2000);
                 } else {
                     messageDiv.style.color = 'red';
                     messageDiv.textContent = result.message || 'Bir hata oluştu.';
                 }
+
             } catch (err) {
                 messageDiv.style.color = 'red';
                 messageDiv.textContent = 'Sunucudan beklenmeyen bir yanıt alındı.';
