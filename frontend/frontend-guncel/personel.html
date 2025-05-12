@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fast Food Sipariş Sistemi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="personel.css" />
+</head>
+<body>
+  <div class="header-container">
+    <div class="header-content">
+      <img src="images/burgery.png" alt="Logo" class="header-logo-special" />
+      <nav class="nav-links">
+        <a href="main2.html">Ana Sayfa</a>
+        <a href="menu.html">Menüler</a>
+        <a href="#">İletişim</a>
+        <a href="#">Konum</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Personel Sipariş Paneli</h1>
+
+    <div class="form">
+      <input type="text" id="customerName" placeholder="Müşteri Adı" />
+      <input type="text" id="orderContent" placeholder="Sipariş İçeriği" />
+      <button onclick="siparisEkle()">Sipariş Ekle</button>
+    </div>
+
+    <div class="siparisler">
+      <h2>Sipariş Listesi</h2>
+      <ul id="siparisListesi"></ul>
+    </div>
+
+    <div class="siradaki">
+      <h3>Sıradaki Sipariş</h3>
+      <p id="siradakiSiparis">Henüz sıradaki sipariş yok</p>
+      <button id="hazirlaBtn" onclick="siparisHazirla()" disabled>Siparişi Hazırla</button>
+    </div>
+
+    <div class="hazirlanan">
+      <h3>Hazırlanan Sipariş</h3>
+      <p id="hazirlananSiparis">Henüz bir sipariş hazırlanıyor değil</p>
+      <input type="range" id="hazirlikSlider" min="0" max="100" value="0" disabled />
+      <button id="tamamlaBtn" onclick="siparisTamamla()" disabled>Siparişi Tamamla</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h3 class="footer-baslik">Hakkımızda</h3>
+        <p>Burgery, M.Ö 7600'den beri hizmetinizde</p>
+      </div>
+
+
+  <script src="personel.js"></script>
+</body>
+</html>
