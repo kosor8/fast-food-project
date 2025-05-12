@@ -4,9 +4,9 @@ namespace FastFoodMenuAPI.Services
 {
     public class CartService
     {
-        private static List<CartItem> _cart = new List<CartItem>();
+        private static List<SimpleCartItem> _cart = new List<SimpleCartItem>();
 
-        public List<CartItem> GetCartItems()
+        public List<SimpleCartItem> GetCartItems()
         {
             return _cart;
         }
@@ -26,7 +26,7 @@ namespace FastFoodMenuAPI.Services
                 else
                 {
                     // Ürün sepette yoksa, yeni bir CartItem ekle
-                    _cart.Add(new CartItem
+                    _cart.Add(new SimpleCartItem
                     {
                         ProductId = product.Id,
                         ProductName = product.Name,
@@ -56,6 +56,12 @@ namespace FastFoodMenuAPI.Services
                 }
             }
         }
+        public void ClearCart()
+        {
+            _cart.Clear();
+        }
+
+
         private ProductNode GetProductById(int productId)
         {
             var menuService = new MenuService();

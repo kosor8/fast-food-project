@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[FastFoodMenuAPI.Models.CartItem, FastFoodMenuAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "FastFoodMenuAPI.Models.CartSummary",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -22,7 +22,7 @@
   {
     "ContainingType": "FastFoodMenuAPI.Controllers.CartController",
     "Method": "AddToCart",
-    "RelativePath": "api/Cart/{productId}",
+    "RelativePath": "api/Cart/add/{productId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -38,7 +38,7 @@
   {
     "ContainingType": "FastFoodMenuAPI.Controllers.CartController",
     "Method": "RemoveFromCart",
-    "RelativePath": "api/Cart/{productId}",
+    "RelativePath": "api/Cart/remove/{productId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -52,49 +52,39 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FastFoodMenuAPI.Controllers.MenuController",
-    "Method": "GetFullMenu",
-    "RelativePath": "api/Menu",
+    "ContainingType": "FastFoodMenuAPI.Controllers.OrderController",
+    "Method": "GetOrders",
+    "RelativePath": "api/Order",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[FastFoodMenuAPI.Models.CategoryNode, FastFoodMenuAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "FastFoodMenuAPI.Controllers.MenuController",
-    "Method": "GetCategoryProducts",
-    "RelativePath": "api/Menu/categories/{categoryId}",
-    "HttpMethod": "GET",
+    "ContainingType": "FastFoodMenuAPI.Controllers.OrderController",
+    "Method": "CancelOrder",
+    "RelativePath": "api/Order/cancel-order/{orderId}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "categoryId",
+        "Name": "orderId",
         "Type": "System.Int32",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[FastFoodMenuAPI.Models.ProductNode, FastFoodMenuAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FastFoodMenuAPI.Controllers.OrderController",
+    "Method": "PlaceOrder",
+    "RelativePath": "api/Order/place-order",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

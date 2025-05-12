@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using FastFoodMenuAPI.Models;
 using FastFoodMenuAPI.Services;
 
@@ -53,4 +53,3 @@ namespace FastFoodMenuAPI.Controllers
         }
     }
 }
-

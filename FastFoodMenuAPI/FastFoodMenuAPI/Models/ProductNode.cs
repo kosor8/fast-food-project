@@ -1,4 +1,6 @@
-﻿namespace FastFoodMenuAPI.Models
+﻿using System.Globalization;
+
+namespace FastFoodMenuAPI.Models
 {
     public class ProductNode
     {
