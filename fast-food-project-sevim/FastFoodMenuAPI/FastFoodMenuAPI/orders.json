@@ -1,0 +1,20 @@
+[
+  {
+    "OrderId": 1,
+    "Items": [
+      {
+        "ProductId": 301,
+        "ProductName": "Kola",
+        "Price": 29.90,
+        "Quantity": 2
+      },
+      {
+        "ProductId": 102,
+        "ProductName": "Gurme Umami",
+        "Price": 199.90,
+        "Quantity": 3
+      }
+    ],
+    "Status": "Haz\u0131rlan\u0131yor"
+  }
+]
