@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <title>Sepet Sayfası</title>
+    <!-- Stil dosyasını ekleme -->
+    <link rel="stylesheet" href="cart_style.css" />
+  </head>
+  <body>
+    <video autoplay muted loop id="background-video">
+      <source src="videos/kurye.mp4" type="video/mp4" />
+      Tarayıcınız video etiketini desteklemiyor.
+    </video>
+
+
+    <!-- HEADER BU ARALIKTA -->
+
+    <div class="header-container">
+      <div class="header-content">
+        <img src="images/burgery.png" alt="Logo" class="header-logo-special" />
+        
+        <nav class="nav-links">
+          <a href="main2.html">Burgery</a>
+          <a href="menu.html">Menüler</a>
+          <a href="#">İletişim</a>
+          <a href="#">Konum</a>
+        </nav>
+    
+        <div class="header-right">
+          <div class="cart-icon"><a href="cart.html"><img src="images/sepet.png"></a></div>
+          <div class="auth-links">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- HEADER BU ARALIKTA -->
+
+    <div class="overlay"></div>
+
+    <!-- Sepet Özeti Bölümü -->
+    <section class="sepet" id="cart-summary">
+      
+
+      <!-- Burgerler Kategorisi -->
+      <div class="cart-left">
+        <h2>Sepetinizin Özeti</h2>
+      <div class="category-section">
+        <h3>Burgerler</h3>
+        <ul id="burgerler-list" class="cart-items-list"></ul>
+      </div>
+
+      <!-- İçecekler Kategorisi -->
+      <div class="category-section">
+        <h3>İçecekler</h3>
+        <ul id="icecekler-list" class="cart-items-list"></ul>
+      </div>
+
+      <!-- Tatlılar Kategorisi -->
+      <div class="category-section">
+        <h3>Tatlılar</h3>
+        <ul id="tatlilar-list" class="cart-items-list"></ul>
+      </div>
+
+      <!-- Yan Ürünler Kategorisi -->
+      <div class="category-section">
+        <h3>Yan Ürünler</h3>
+        <ul id="yanurunler-list" class="cart-items-list"></ul>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Sepet Toplamı Bölümü -->
+    
+    <div class="cart-right">
+    <div id="summary-totals">
+        <p class="fatura-baslik">Ara Toplam: <span id="sub-total">0</span> TL</p>
+        <p class="fatura-baslik">KDV (%8): <span id="vat">0</span> TL</p>
+        <p class="fatura-baslik">Teslimat Ücreti: 89.90 TL</p>
+        <h3 class="fatura-baslik">Toplam Tutar: <br> <span id="total-price">0</span> TL</h3>
+      </div>
+
+      <!-- Siparişi Tamamla Butonu -->
+      <button id="checkout-button">Siparişi Tamamla</button>
+    </div>
+
+    
+    </section>
+
+    <!-- Önerilen Ürünler Bölümü -->
+    <section id="recommended-section">
+      <h2>Önerilen Ürünler</h2>
+      <div class="slider-container">
+        <button id="prevBtn" class="slider-btn">&larr;</button>
+        <div class="slider-track">
+          <div class="product-slide">
+            <img src="images/burgers/bacon.png" alt="baconburger" />
+            <span>Baconburger with Cheese</span>
+          </div>
+          <div class="product-slide">
+            <img src="images/kola.png" alt="Cola" />
+            <span>CocaCola Classic</span>
+          </div>
+          <div class="product-slide">
+            <img src="images/dondurma.png" alt="dondurma" />
+            <span>Sundae from Burgery&copy</span>
+          </div>
+          <div class="product-slide">
+            <img src="images/patates.png" alt="patates" />
+            <span>Çıtır Patates Kızartması</span>
+          </div>
+          <div class="product-slide">
+            <img src="images/nugget.png" alt="nugget" />
+            <span>BurgeryNuggets</span>
+          </div>
+          <div class="product-slide">
+            <img src="images/sogan.png" alt="nugget" />
+            <span>Burgery Çıtır Soğan</span>
+            <a href="menu.html#202" class="go-to-menu">
+              <img src="images/sepet.png" alt="Git" style="width: 20px; height: 20px;" />
+          </div>
+        </div>
+        <button id="nextBtn" class="slider-btn">&rarr;</button>
+      </div>
+    </section>
+
+    
+  </body>
+</html>
+
+<style>
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+
+  .cart-item-info {
+    flex-grow: 1;
+  }
+
+  .cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .quantity-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quantity-btn:hover {
+    background: #ff3333;
+  }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .delete-btn img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cart-items-list {
+    list-style: none;
+    padding: 0;
+  }
+</style>
+
+<script>
+  // Slider işlemleri için gerekli değişkenler
+  const sliderTrack = document.querySelector(".slider-track");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  let currentIndex = 0; // Hangi pozisyondayız
+
+  // Slider için olası maksimum index (6 ürün, 2 gösteriliyor => 3 adım)
+  const maxIndex = 2;
+
+  // Önce localStorage'da 'cart' yoksa örnek ürünleri ekleyelim
+  // Her ürün: isim, fiyat, miktar, kategori, (isteğe bağlı görsel yolu)
+  if (!localStorage.getItem("cart")) {
+    const initialCart = [
+      { name: "Hamburger", price: 50, quantity: 1, category: "Burgerler" },
+      { name: "Cheeseburger", price: 60, quantity: 2, category: "Burgerler" },
+      { name: "Cola", price: 15, quantity: 3, category: "İçecekler" },
+      { name: "Lemonade", price: 12, quantity: 1, category: "İçecekler" },
+      { name: "Cake", price: 40, quantity: 1, category: "Tatlılar" },
+      { name: "Fries", price: 20, quantity: 2, category: "Yan Ürünler" },
+    ];
+    localStorage.setItem("cart", JSON.stringify(initialCart));
+  }
+
+  // Sepet özetini hesaplama ve ekrana yazdırma
+  function renderCartSummary() {
+    // LocalStorage'daki sepet verisini al
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Kategorilere göre elemanları topla
+    const categories = {
+      Burgerler: [],
+      İçecekler: [],
+      Tatlılar: [],
+      "Yan Ürünler": [],
+    };
+    cart.forEach((item) => {
+      if (categories[item.category]) {
+        categories[item.category].push(item);
+      }
+    });
+
+    // Her kategori listesi için HTML oluştur
+    document.getElementById("burgerler-list").innerHTML = "";
+    document.getElementById("icecekler-list").innerHTML = "";
+    document.getElementById("tatlilar-list").innerHTML = "";
+    document.getElementById("yanurunler-list").innerHTML = "";
+
+    let subTotal = 0;
+
+    // Yardımcı fonksiyon: kategori adına göre uygun listeyi seç ve doldur
+    function fillCategoryList(catName, listId) {
+      const listElement = document.getElementById(listId);
+      categories[catName].forEach((product, index) => {
+        const li = document.createElement("li");
+        li.className = "cart-item";
+        
+        const itemInfo = document.createElement("div");
+        itemInfo.className = "cart-item-info";
+        itemInfo.textContent = `${product.name} - ${product.price} TL`;
+        
+        const controls = document.createElement("div");
+        controls.className = "cart-item-controls";
+        
+        const quantityControl = document.createElement("div");
+        quantityControl.className = "quantity-control";
+        
+        const minusBtn = document.createElement("button");
+        minusBtn.className = "quantity-btn";
+        minusBtn.textContent = "-";
+        minusBtn.onclick = () => updateQuantity(product.name, -1);
+        
+        const quantity = document.createElement("span");
+        quantity.textContent = product.quantity;
+        
+        const plusBtn = document.createElement("button");
+        plusBtn.className = "quantity-btn";
+        plusBtn.textContent = "+";
+        plusBtn.onclick = () => updateQuantity(product.name, 1);
+        
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "delete-btn";
+        deleteBtn.innerHTML = '<img src="images/trash.png" alt="Sil">';
+        deleteBtn.onclick = () => removeItem(product.name);
+        
+        quantityControl.appendChild(minusBtn);
+        quantityControl.appendChild(quantity);
+        quantityControl.appendChild(plusBtn);
+        
+        controls.appendChild(quantityControl);
+        controls.appendChild(deleteBtn);
+        
+        li.appendChild(itemInfo);
+        li.appendChild(controls);
+        listElement.appendChild(li);
+        
+        subTotal += product.price * product.quantity;
+      });
+    }
+
+    // Her kategori için liste doldur
+    fillCategoryList("Burgerler", "burgerler-list");
+    fillCategoryList("İçecekler", "icecekler-list");
+    fillCategoryList("Tatlılar", "tatlilar-list");
+    fillCategoryList("Yan Ürünler", "yanurunler-list");
+
+    // Vergi (%8) ve toplam hesapla
+    const vat = subTotal * 0.08;
+    const total = subTotal + vat + 89.9;
+
+    // Ekranda göster
+    document.getElementById("sub-total").textContent = subTotal.toFixed(2);
+    document.getElementById("vat").textContent = vat.toFixed(2);
+    document.getElementById("total-price").textContent = total.toFixed(2);
+  }
+
+  // Ürün miktarını güncelleme fonksiyonu
+  function updateQuantity(productName, change) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const productIndex = cart.findIndex(item => item.name === productName);
+    
+    if (productIndex !== -1) {
+      cart[productIndex].quantity += change;
+      
+      // Eğer miktar 0 veya daha az olduysa ürünü sepetten kaldır
+      if (cart[productIndex].quantity <= 0) {
+        cart.splice(productIndex, 1);
+      }
+      
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCartSummary();
+    }
+  }
+
+  // Ürünü sepetten kaldırma fonksiyonu
+  function removeItem(productName) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const updatedCart = cart.filter(item => item.name !== productName);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    renderCartSummary();
+  }
+
+  // Slider butonlarına tıklama olayları
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+      sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
+    }
+  });
+
+  // Sayfa yüklendiğinde sepet özetini hazırla
+  window.addEventListener("DOMContentLoaded", () => {
+    renderCartSummary();
+  });
+
+  // Otomatik slider: her 3 saniyede bir ileri kaydır
+  setInterval(() => {
+    currentIndex++;
+    if (currentIndex > maxIndex) {
+      currentIndex = 0; // Başa dön
+    }
+    sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
+  }, 3000); // 3000ms = 3 saniye
+</script>

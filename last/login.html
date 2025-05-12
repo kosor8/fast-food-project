@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="login.css" />
+  <title>FastFoodAPI - Giriş ve Kayıt</title>
+</head>
+<body>
+  <!-- Video -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="media/output.mp4" type="video/mp4" />
+    Tarayıcınız video etiketini desteklemiyor.
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Giriş Ekranı -->
+  <div class="container" id="loginContainer">
+    <img src="media/burgery.png" alt="Logo" class="logo" />
+    <h2>Giriş Yapınız</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="E-posta" required /><br />
+      <input type="password" id="loginPassword" placeholder="Parola" required /><br />
+      <button type="submit">Giriş Yap</button>
+    </form>
+    <div class="message" id="loginMessage"></div>
+    <p>Hesabınız yok mu? <a href="#" id="goToRegister">Kayıt Olun</a></p>
+  </div>
+
+  <!-- Kayıt Ekranı -->
+  <div class="container" style="display: none" id="registerContainer">
+    <a href="../../main2.html"><img src="media/burgery.png" alt="Logo" class="logo" /></a>
+    <h2>Kayıt Olunuz</h2>
+    <form id="registerForm">
+      <input type="text" id="registerName" placeholder="İsim" required /><br />
+      <input type="email" id="registerEmail" placeholder="E-posta" required /><br />
+      <input type="password" id="registerPassword" placeholder="Parola" required /><br />
+      <button type="submit">Kayıt Ol</button>
+    </form>
+    <div class="message" id="registerMessage"></div>
+    <p>Zaten hesabınız var mı? <a href="#" id="goToLogin">Giriş Yapın</a></p>
+  </div>
+
+  <script>
+    const API_BASE = "http://localhost:5067/kullanici/login";
+
+    document.getElementById('loginForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      const messageDiv = document.getElementById('loginMessage');
+
+      messageDiv.className = 'message'; // sınıfları sıfırla
+
+      try {
+        const response = await fetch(API_BASE, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            Eposta: email,
+            Parola: password
+          })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          localStorage.setItem("oturumEposta", email);
+          messageDiv.classList.add('success');
+          messageDiv.textContent = typeof result === 'string' ? result : result.message || 'Giriş başarılı!';
+
+          setTimeout(() => {
+            window.location.href = 'main2.html';
+          }, 2000);
+        } else {
+          messageDiv.classList.add('error');
+          messageDiv.textContent = result.message || 'Bir hata oluştu.';
+        }
+
+      } catch (err) {
+        messageDiv.classList.add('error');
+        messageDiv.textContent = 'Sunucudan beklenmeyen bir yanıt alındı.';
+      }
+    });
+  </script>
+</body>
+</html>
