@@ -11,7 +11,7 @@ namespace FastFoodMenuAPI.Controllers
         private readonly CartService _cartService;
         private readonly OrderService _orderService;
 
-        public OrderController()
+        public OrderController(CartService cartService, OrderService orderService)
         {
             _cartService = new CartService();
             _orderService = new OrderService();
