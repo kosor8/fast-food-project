@@ -1,0 +1,104 @@
+[
+  {
+    "OrderId": 1,
+    "Items": [
+      {
+        "ProductId": 101,
+        "ProductName": "Inferno Burger",
+        "Price": 189.90,
+        "Quantity": 2
+      },
+      {
+        "ProductId": 201,
+        "ProductName": "Patates K\u0131zartmas\u0131",
+        "Price": 49.90,
+        "Quantity": 1
+      }
+    ],
+    "Status": "\u0130ptal Edildi"
+  },
+  {
+    "OrderId": 1,
+    "Items": [
+      {
+        "ProductId": 103,
+        "ProductName": "Double Cheeseburger",
+        "Price": 179.90,
+        "Quantity": 1
+      }
+    ],
+    "Status": "Haz\u0131rlan\u0131yor"
+  },
+  {
+    "OrderId": 1,
+    "Items": [
+      {
+        "ProductId": 101,
+        "ProductName": "Inferno Burger",
+        "Price": 189.90,
+        "Quantity": 1
+      }
+    ],
+    "Status": "Haz\u0131rlan\u0131yor"
+  },
+  {
+    "OrderId": 2,
+    "Items": [
+      {
+        "ProductId": 201,
+        "ProductName": "Patates K\u0131zartmas\u0131",
+        "Price": 49.90,
+        "Quantity": 1
+      }
+    ],
+    "Status": "Haz\u0131rlan\u0131yor"
+  },
+  {
+    "OrderId": 3,
+    "Items": [
+      {
+        "ProductId": 201,
+        "ProductName": "Patates K\u0131zartmas\u0131",
+        "Price": 49.90,
+        "Quantity": 1
+      }
+    ],
+    "Status": "Haz\u0131rlan\u0131yor"
+  },
+  {
+    "OrderId": 1,
+    "Items": [
+      {
+        "ProductId": 201,
+        "ProductName": "Patates K\u0131zartmas\u0131",
+        "Price": 49.90,
+        "Quantity": 1
+      }
+    ],
+    "Status": "Haz\u0131rlan\u0131yor"
+  },
+  {
+    "OrderId": 1,
+    "Items": [
+      {
+        "ProductId": 204,
+        "ProductName": "Mozzarella \u00C7ubuklar\u0131",
+        "Price": 79.90,
+        "Quantity": 1
+      }
+    ],
+    "Status": "Haz\u0131rlan\u0131yor"
+  },
+  {
+    "OrderId": 2,
+    "Items": [
+      {
+        "ProductId": 204,
+        "ProductName": "Mozzarella \u00C7ubuklar\u0131",
+        "Price": 79.90,
+        "Quantity": 1
+      }
+    ],
+    "Status": "Haz\u0131rlan\u0131yor"
+  }
+]
