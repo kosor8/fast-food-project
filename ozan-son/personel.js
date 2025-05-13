@@ -67,6 +67,9 @@ async function loadOrders() {
             const toplam = order.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             siparisIcerik += `<strong>Toplam:</strong> ₺${toplam.toFixed(2)}<br>`;
             
+            // Silme butonu ekle
+            siparisIcerik += `<button class="silBtn" onclick="deleteOrder(${order.orderId})">Sil</button>`;
+
             li.innerHTML = siparisIcerik;
             siparisListesi.appendChild(li);
         });
@@ -96,8 +99,25 @@ async function completeOrder(orderId) {
     }
 }
 
+// Siparişi sil
+async function deleteOrder(orderId) {
+    try {
+        const response = await fetch(`http://localhost:5067/api/Order/${orderId}`, {
+            method: 'DELETE'
+        });
+        
+        if (response.ok) {
+            loadOrders();
+        } else {
+            console.error('Sipariş silinirken hata:', await response.text());
+        }
+    } catch (error) {
+        console.error('Sipariş silinirken hata:', error);
+    }
+}
+
 // Sayfa yüklendiğinde siparişleri yükle
 document.addEventListener('DOMContentLoaded', () => {
     loadOrders();
     setInterval(loadOrders, 2000);
-}); 
+});

@@ -16,7 +16,6 @@ namespace FastFoodMenuAPI.Services
                 OrderId = _orderCounter++,
                 Items = new List<SimpleCartItem>(cartItems),
                 Status = "Hazırlanıyor",
-                
             };
 
             _orderQueue.Enqueue(newOrder);
@@ -68,6 +67,33 @@ namespace FastFoodMenuAPI.Services
         public List<Order> GetActiveOrders()
         {
             return _orderQueue.Where(o => o.Status == "Hazırlanıyor").ToList();
+        }
+
+        public bool DeleteOrder(int orderId)
+        {
+            // Kuyruktan çıkar ve yeni bir kuyruk oluştur
+            var tempQueue = new ConcurrentQueue<Order>();
+            var found = false;
+
+            while (_orderQueue.TryDequeue(out var order))
+            {
+                if (order.OrderId == orderId)
+                {
+                    found = true; // Sipariş bulundu ve silindi
+                }
+                else
+                {
+                    tempQueue.Enqueue(order); // Bulunmayan siparişleri geçici kuyruğa ekle
+                }
+            }
+
+            // Sipariş bulunduysa ve silindiyse, geri kuyruğa aktarılan siparişleri eski kuyruğa ekle
+            while (tempQueue.TryDequeue(out var order))
+            {
+                _orderQueue.Enqueue(order);
+            }
+
+            return found;
         }
     }
 }

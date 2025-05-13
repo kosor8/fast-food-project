@@ -88,5 +88,17 @@ namespace FastFoodMenuAPI.Controllers
             var orders = _orderService.GetAllOrders();
             return Ok(orders);
         }
+
+        // Siparişi sil
+        [HttpDelete("{orderId}")]
+        public IActionResult DeleteOrder(int orderId)
+        {
+            var isDeleted = _orderService.DeleteOrder(orderId);
+            if (isDeleted)
+            {
+                return Ok(new { message = "Sipariş başarıyla silindi." });
+            }
+            return NotFound(new { message = "Sipariş bulunamadı." });
+        }
     }
 }
