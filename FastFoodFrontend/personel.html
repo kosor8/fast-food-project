@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fast Food Sipariş Sistemi</title>
+  <link rel="stylesheet" href="personel.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Fast Food Sipariş Sistemi</h1>
+
+    <div class="form">
+      <input type="text" id="orderContent" placeholder="Sipariş İçeriği" />
+      <button onclick="siparisEkle()">Sipariş Ekle</button>
+    </div>
+
+    <div class="siparisler">
+      <h2>Sipariş Listesi</h2>
+      <ul id="siparisListesi"></ul>
+    </div>
+
+    <div class="siradaki">
+      <h3>Sıradaki Sipariş</h3>
+      <p id="siradakiSiparis">Henüz sıradaki sipariş yok</p>
+      <button id="hazirlaBtn" onclick="siparisHazirla()" disabled>Siparişi Hazırla</button>
+    </div>
+
+    <div class="hazirlanan">
+      <h3>Hazırlanan Sipariş</h3>
+      <p id="hazirlananSiparis">Henüz bir sipariş hazırlanıyor değil</p>
+      <input type="range" id="hazirlikSlider" min="0" max="100" value="0" disabled />
+      <button id="tamamlaBtn" onclick="siparisTamamla()" disabled>Siparişi Tamamla</button>
+    </div>
+  </div>
+
+  <script src="personel.js"></script>
+</body>
+</html>

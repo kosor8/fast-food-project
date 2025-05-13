@@ -1,8 +1,5 @@
 using FastFoodMenuAPI.Models;
 using System.Collections.Concurrent;
-using FastFoodMenuAPI.Models;
-using FastFoodAPI.Models;
-
 
 namespace FastFoodMenuAPI.Services
 {
@@ -19,6 +16,7 @@ namespace FastFoodMenuAPI.Services
                 OrderId = _orderCounter++,
                 Items = new List<SimpleCartItem>(cartItems),
                 Status = "Hazırlanıyor",
+                
             };
 
             _orderQueue.Enqueue(newOrder);
@@ -74,7 +72,6 @@ namespace FastFoodMenuAPI.Services
 
         public bool DeleteOrder(int orderId)
         {
-            // Kuyruktan çıkar ve yeni bir kuyruk oluştur
             var tempQueue = new ConcurrentQueue<Order>();
             var found = false;
 

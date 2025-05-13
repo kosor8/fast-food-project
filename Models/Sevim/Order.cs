@@ -1,10 +1,12 @@
-namespace FastFoodAPI.Models
+﻿namespace FastFoodMenuAPI.Models
 {
     public class Order
     {
-        public int ID { get; set; }
-        public string? CustomerName { get; set; } = string.Empty;
-        public string? Content { get; set; } = string.Empty;
-        public DateTime Timestamp { get; set; }
+        public int OrderId { get; set; }
+        public List<SimpleCartItem> Items { get; set; }
+        public string Status { get; set; } 
     }
 }
+
+
+

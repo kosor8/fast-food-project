@@ -1,0 +1,19 @@
+    Ekmek: Kömürleşmiş "Siyah Lavaş Ekmeği" (üzeri susam ve çörek otu ile kaplı).
+
+    Sos Tabakası: Baharatlı "Kırmızı Biber & Chipotle Mayonez" (parlak kırmızı renkli, hafif dumanlı).
+
+    Yeşillik: Taze "Roka Yaprakları" (koyu yeşil, gevrek dokulu).
+
+    Et: "Wagyu Dana Köftesi" (kalın, pembe-çizgili pişirme ile, üzeri hafif tuz kristalli).
+
+    Peynir: Eritilmiş "Smoked Gouda Peyniri" (altın rengi, sıvı dokuda).
+
+    Ekstra Lezzet: "Karamelize Ananas Halkası" (altın sarısı, şekerli glaze ile).
+
+    Çıtır Katman: "Jalapeno Halkaları" (kızarmış, altın rengi).
+
+    Tat Dengesi: "Karamelize Soğan Halkaları" (koyu amber rengi).
+
+    Üst Sos: "Truffle Aromalı Nar Ekşisi Sosu" (koyu kırmızı, parlak).
+
+    Son Dokunuş: "Siyah Lavaş Ekmeği Üst Kapağı" (üzerinde lavaş desenli ızgara izleri).

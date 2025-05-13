@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastFoodAPI - Giriş</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .personel-button {
+            background-color: #f44336;
+            margin-top: 10px;
+        }
+        .personel-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="loginContainer">
+        <h2>FastFoodAPI - Giriş</h2>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="E-posta" required><br>
+            <input type="password" id="loginPassword" placeholder="Parola" required><br>
+            <button type="submit">Giriş Yap</button>
+        </form>
+        <button class="personel-button" onclick="window.location.href='personel_login.html'">Personel Girişi</button>
+        <div class="message" id="loginMessage"></div>
+        <p>Hesabınız yok mu? <a href="register.html">Kayıt Olun</a></p>
+    </div>
+
+    <script>
+        const API_BASE = "http://localhost:5067/kullanici/login";
+
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            const response = await fetch(API_BASE, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Eposta: email,
+                    Parola: password
+                })
+            });
+
+            const messageDiv = document.getElementById('loginMessage');
+
+            try {
+                const result = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem("oturumEposta", email);
+                    messageDiv.style.color = 'green';
+                    messageDiv.textContent = typeof result === 'string' ? result : result.message || 'Giriş başarılı!';
+                    
+                    // 2 saniye sonra menu.html'e yönlendir
+                    setTimeout(() => {
+                        window.location.href = 'menu.html'; // Yönlendirme burası
+                    }, 2000);
+                } else {
+                    messageDiv.style.color = 'red';
+                    messageDiv.textContent = result.message || 'Bir hata oluştu.';
+                }
+
+            } catch (err) {
+                messageDiv.style.color = 'red';
+                messageDiv.textContent = 'Sunucudan beklenmeyen bir yanıt alındı.';
+            }
+        });
+    </script>
+</body>
+</html>

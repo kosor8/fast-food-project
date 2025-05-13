@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burgery - Personel Paneli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="personel.css" />
+</head>
+<body>
+    <div class="header-container">
+        <div class="header-content">
+            <img src="./images/burgery.png" alt="Logo" class="header-logo-special" />
+
+            <nav class="nav-links">
+                <a href="./main2.html">Ana Menü</a>
+            </nav>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Personel Sipariş Paneli</h1>
+
+        <div class="siradaki">
+            <h2>Sıradaki Sipariş</h2>
+            <div id="siradakiSiparis">Henüz sıradaki sipariş yok</div>
+            <button id="hazirlaBtn" disabled>Siparişi Hazırla</button>
+        </div>
+
+        <div class="siparisler">
+            <h2>Aktif Siparişler</h2>
+            <ul id="siparisListesi" class="siparis-listesi"></ul>
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h3 class="footer-baslik">Burgery</h3>
+                <p>Lezzet ve kalitenin adresi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="personel.js"></script>
+</body>
+</html>
