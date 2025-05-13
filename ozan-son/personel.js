@@ -99,5 +99,5 @@ async function completeOrder(orderId) {
 // Sayfa yüklendiğinde siparişleri yükle
 document.addEventListener('DOMContentLoaded', () => {
     loadOrders();
-    setInterval(loadOrders, 30000);
+    setInterval(loadOrders, 2000);
 }); 

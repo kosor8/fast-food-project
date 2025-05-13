@@ -24,8 +24,9 @@
         <div class="header-right">
           <div class="cart-icon"><a href="cart.html"><img src="images/sepet.png" style="width:55px;"></a></div>
           <div class="auth-links">
-            <a href="login.html">Giriş Yap</a>         </div>
-        </div>
+              <a href="login.html" id="auth-link">Giriş Yap</a>
+              <a href="login.html" id="logout-link">Çıkış Yap</a>
+          </div>
       </div>
     </div>
 
@@ -137,5 +138,48 @@
       </p>
     </div>
   </footer>
+
+  <script>
+    // Kullanıcı adı alma ve gösterme
+    document.addEventListener("DOMContentLoaded", async () => {
+      const eposta = localStorage.getItem("oturumEposta");
+      const authLink = document.getElementById("auth-link");
+      const logoutLink = document.getElementById("logout-link");
+
+      try {
+        const customerName = await getCustomerNameFromEmail(eposta);
+
+        if (customerName && authLink) {
+          authLink.textContent = customerName;
+          authLink.href = "#";
+        } else {
+          // Giriş yapılmamışsa
+          authLink.textContent = "Giriş Yap";
+          authLink.href = "login.html";
+          logoutLink.style.display = "none";
+        }
+
+        logoutLink.addEventListener("click", function () {
+          localStorage.removeItem("oturumEposta");
+          sessionStorage.removeItem("sesCaldi");
+          window.location.href = "login.html";
+        });
+
+      } catch (err) {
+        console.error("Kullanıcı adı alınamadı:", err);
+      }
+    });
+
+    async function getCustomerNameFromEmail(eposta) {
+      try {
+        const response = await fetch(`http://localhost:5067/kullanici/isim?eposta=${eposta}`);
+        const data = await response.json();
+        return data.ad;
+      } catch (err) {
+        console.error("Kullanıcı adı alınamadı:", err);
+        return null;
+      }
+    };
+  </script>
 </body>
 </html>

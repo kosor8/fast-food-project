@@ -239,10 +239,6 @@ h2, h3 {
     }
 }
 
-.siparis-item {
-    animation: fadeIn 0.3s ease-out;
-}
-
 /* Y�kleme Durumu */
 .siparis-listesi:empty::before {
     content: 'Sipari�ler y�kleniyor...';
