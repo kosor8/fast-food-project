@@ -217,7 +217,7 @@ En kötü durumda tüm siparişler geçici kuyrukta tekrar saklandığı için a
  `├── KullaniciVeritabani.cs`  
 `├──...`              
 `│`  
-`├── frontend/`     
+`├── front-end/`     
 `│   ├── images/`  
 `│   ├── videos/`  
 `│   ├── sounds/`  
