@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <title>Burgery Co &copy; Sepetim</title>
+    <!-- Stil dosyasını ekleme -->
+    <link rel="stylesheet" href="cart_style.css" />
+  </head>
+  <body>
+    <video autoplay muted loop id="background-video">
+      <source src="videos/kurye.mp4" type="video/mp4" />
+      Tarayıcınız video etiketini desteklemiyor.
+    </video>
+
+
+    <!-- HEADER -->
+    <div class="header-container">
+      <div class="header-content">
+        <img src="images/burgery.png" alt="Logo" class="header-logo-special" />
+        
+        <nav class="nav-links">
+          <a href="main2.html">Burgery</a>
+          <a href="menu.html">Menüler</a>
+          <a href="iletisim.html">İletişim</a>
+          <a href="konum.html">Konum</a>
+        </nav>
+    
+        <div class="header-right">
+          <div class="cart-icon"><a href="cart.html"><img src="images/sepet.png"></a></div>
+          <div class="auth-links">
+            <a href="login.html" id="auth-link">Giriş Yap</a>
+            <a href="login.html" id="logout-link" >Çıkış Yap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!----------------------------------------------------------------->
+
+
+    <!-- HEADER BU ARALIKTA -->
+
+    <div class="overlay"></div>
+
+    <!-- Sepet Özeti Bölümü -->
+    <section class="sepet" id="cart-summary">
+      
+
+      <!-- Burgerler Kategorisi -->
+      <div class="cart-left">
+        <h2>Sepetinizin Özeti</h2>
+      <div class="category-section">
+        <h3>Burgerler</h3>
+        <ul id="burgerler-list" class="cart-items-list"></ul>
+      </div>
+
+      <!-- İçecekler Kategorisi -->
+      <div class="category-section">
+        <h3>İçecekler</h3>
+        <ul id="icecekler-list" class="cart-items-list"></ul>
+      </div>
+
+      <!-- Tatlılar Kategorisi -->
+      <div class="category-section">
+        <h3>Tatlılar</h3>
+        <ul id="tatlilar-list" class="cart-items-list"></ul>
+      </div>
+
+      <!-- Yan Ürünler Kategorisi -->
+      <div class="category-section">
+        <h3>Yan Ürünler</h3>
+        <ul id="yanurunler-list" class="cart-items-list"></ul>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Sepet Toplamı Bölümü -->
+    
+    <div class="cart-right">
+    <div id="summary-totals">
+        <p class="fatura-baslik">Ara Toplam: <span id="sub-total">0</span> TL</p>
+        <p class="fatura-baslik">KDV (%8): <span id="vat">0</span> TL</p>
+        <p class="fatura-baslik">Teslimat Ücreti: 89.90 TL</p>
+        <h3 class="fatura-baslik">Toplam Tutar: <br> <span id="total-price">0</span> TL</h3>
+      </div>
+
+      <!-- Siparişi Tamamla Butonu -->
+      <button id="checkout-button">Siparişi Tamamla</button>
+    </div>
+
+    
+    </section>
+
+<section id="recommended-section">
+      <h2>Önerilen Ürünler</h2>
+      <div class="slider-container">
+        <button id="prevBtn" class="slider-btn">&larr;</button>
+        <div class="slider-track">
+          <div class="product-slide">
+            <a href="menu.html">
+            <img src="images/burgers/bacon.png" alt="baconburger" />
+            </a>
+            <span>Baconburger with Cheese</span>
+          </div>
+          <div class="product-slide">
+            <a href="menu.html">
+            <img src="images/kola.png" alt="Cola" />
+            </a>
+            <span>CocaCola Classic</span>
+          </div>
+          <div class="product-slide">
+            <a href="menu.html">
+            <img src="images/dondurma.png" alt="dondurma" />
+            </a>
+            <span>Sundae from Burgery&copy</span>
+          </div>
+          <div class="product-slide">
+            <a href="menu.html">
+            <img src="images/patates.png" alt="patates" />
+            </a>
+            <span>Çıtır Patates Kızartması</span>
+          </div>
+          <div class="product-slide">
+            <a href="menu.html">
+            <img src="images/nugget.png" alt="nugget" />
+            </a>
+            <span>BurgeryNuggets</span>
+          </div>
+          <div class="product-slide">
+            <a href="menu.html">
+            <img src="images/sogan.png" alt="nugget" />
+            <span>Burgery Çıtır Soğan</span>
+            </a>"
+          </div>
+        </div>
+        <button id="nextBtn" class="slider-btn">&rarr;</button>
+      </div>
+    </section>
+
+    
+  </body>
+</html>
+
+<style>
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+
+  .cart-item-info {
+    flex-grow: 1;
+  }
+
+  .cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .quantity-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .quantity-btn:hover {
+    background: #ff3333;
+  }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .delete-btn img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cart-items-list {
+    list-style: none;
+    padding: 0;
+  }
+</style>
+
+<script>
+    // Slider işlemleri için gerekli değişkenler (mevcut kodunuz)
+    const sliderTrack = document.querySelector(".slider-track");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let currentIndex = 0;
+    const maxIndex = 2;
+
+    // Sepet özetini hesaplama ve ekrana yazdırma
+    function renderCartSummary() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const categories = {
+            Burgerler: [],
+            İçecekler: [],
+            Tatlılar: [],
+            "Yan Ürünler": [],
+        };
+        cart.forEach((item) => {
+            if (categories[item.category]) {
+                categories[item.category].push(item);
+            }
+        });
+
+        document.getElementById("burgerler-list").innerHTML = "";
+        document.getElementById("icecekler-list").innerHTML = "";
+        document.getElementById("tatlilar-list").innerHTML = "";
+        document.getElementById("yanurunler-list").innerHTML = "";
+
+        let subTotal = 0;
+
+        function fillCategoryList(catName, listId) {
+            const listElement = document.getElementById(listId);
+            categories[catName].forEach((product, index) => {
+                const li = document.createElement("li");
+                li.className = "cart-item";
+
+                const itemInfo = document.createElement("div");
+                itemInfo.className = "cart-item-info";
+                itemInfo.textContent = `${product.name} - ${product.price} TL`;
+
+                const controls = document.createElement("div");
+                controls.className = "cart-item-controls";
+
+                const quantityControl = document.createElement("div");
+                quantityControl.className = "quantity-control";
+
+                const minusBtn = document.createElement("button");
+                minusBtn.className = "quantity-btn";
+                minusBtn.textContent = "-";
+                minusBtn.onclick = () => updateQuantity(product.id, -1); // ID ile güncelleme
+                quantityControl.appendChild(minusBtn);
+
+                const quantity = document.createElement("span");
+                quantity.textContent = product.quantity;
+                quantityControl.appendChild(quantity);
+
+                const plusBtn = document.createElement("button");
+                plusBtn.className = "quantity-btn";
+                plusBtn.textContent = "+";
+                plusBtn.onclick = () => updateQuantity(product.id, 1); // ID ile güncelleme
+                quantityControl.appendChild(plusBtn);
+
+                controls.appendChild(quantityControl);
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.className = "delete-btn";
+                deleteBtn.innerHTML = '<img src="images/trash.png" alt="Sil">';
+                deleteBtn.onclick = () => removeItem(product.id); // ID ile silme
+                controls.appendChild(deleteBtn);
+
+                li.appendChild(itemInfo);
+                li.appendChild(controls);
+                listElement.appendChild(li);
+
+                subTotal += product.price * product.quantity;
+            });
+        }
+
+        fillCategoryList("Burgerler", "burgerler-list");
+        fillCategoryList("İçecekler", "icecekler-list");
+        fillCategoryList("Tatlılar", "tatlilar-list");
+        fillCategoryList("Yan Ürünler", "yanurunler-list");
+
+        const vat = subTotal * 0.08;
+        const total = subTotal + vat + 89.9;
+
+        document.getElementById("sub-total").textContent = subTotal.toFixed(2);
+        document.getElementById("vat").textContent = vat.toFixed(2);
+        document.getElementById("total-price").textContent = total.toFixed(2);
+    }
+
+    // Ürün miktarını güncelleme fonksiyonu (ID ile arama)
+    // Ürün miktarını güncelleme fonksiyonu (ID ile arama)
+    function updateQuantity(productId, change) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const productIndex = cart.findIndex(item => item.id === productId);
+
+        if (productIndex !== -1) {
+            cart[productIndex].quantity += change;
+
+            if (cart[productIndex].quantity <= 0) {
+                cart.splice(productIndex, 1);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCartSummary();
+
+            let method = 'POST';
+            let apiUrl = `http://localhost:5067/api/Cart/add/${productId}`;
+
+            if (change < 0) {
+                method = 'DELETE';
+                apiUrl = `http://localhost:5067/api/Cart/remove/${productId}`; // Backend endpoint'inizi buna göre ayarlayın
+            }
+
+            fetch(apiUrl, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    quantityChange: Math.abs(change), // Mutlak değeri gönderiyoruz (1)
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log("Sepet miktarı güncellendi");
+                    } else {
+                        console.error("Sepet miktarı güncelleme başarısız");
+                    }
+                })
+                .catch(error => console.error("Hata:", error));
+        }
+    }
+
+    // Slider butonlarına tıklama olayları (mevcut kodunuz)
+    prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
+        }
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
+        }
+    });
+
+    setInterval(() => {
+        currentIndex++;
+        if (currentIndex > maxIndex) {
+            currentIndex = 0;
+        }
+        sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
+    }, 3000);
+
+    // Sayfa yüklendiğinde sepet özetini hazırla
+    window.addEventListener("DOMContentLoaded", () => {
+        renderCartSummary();
+    });
+
+    // "Siparişi Tamamla" butonunu seç
+    // ... (Diğer JavaScript kodlarınız) ...
+
+    // "Siparişi Tamamla" butonunu seç
+    const completeOrderBtn = document.getElementById("checkout-button");
+
+    if (completeOrderBtn) {
+        completeOrderBtn.addEventListener("click", completeOrder);
+    }
+
+
+    async function completeOrder() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        try {
+            // 1. POST isteği: Siparişi oluştur
+            const placeOrderResponse = await fetch('http://localhost:5067/api/Order/place-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cart),
+            });
+
+            if (placeOrderResponse.ok) {
+                const orderResult = await placeOrderResponse.json();
+                console.log("Sipariş oluşturuldu:", orderResult);
+
+                // 2. Sepeti temizle (localStorage'dan)
+                localStorage.removeItem("cart");
+
+                // 3. Sepet özetini yeniden render et (boş sepeti göstermek için)
+                renderCartSummary();
+
+                // 4. Anasayfaya yönlendir
+                window.location.href = "main2.html"; // Anasayfanızın URL'si
+            } else {
+                console.error("Sipariş oluşturma başarısız:", placeOrderResponse.status);
+                // Kullanıcıya hata mesajı gösterebilirsiniz.
+            }
+
+        } catch (error) {
+            console.error("Sipariş işlemi sırasında bir hata oluştu:", error);
+            // Kullanıcıya hata mesajı gösterebilirsiniz.
+        }
+    }
+
+    // Kullanıcı adı alma ve gösterme
+    document.addEventListener("DOMContentLoaded", async () => {
+      const eposta = localStorage.getItem("oturumEposta");
+      const authLink = document.getElementById("auth-link");
+      const logoutLink = document.getElementById("logout-link");
+
+      try {
+        const response = await fetch(`http://localhost:5067/kullanici/isim?eposta=${eposta}`);
+        const customerName = await getCustomerNameFromEmail(eposta);
+
+        if (customerName && authLink) {
+          authLink.textContent = customerName;
+          authLink.href = "#";
+        } else {
+          // Giriş yapılmamışsa
+          authLink.textContent = "Giriş Yap";
+          authLink.href = "login.html";
+          logoutLink.style.display = "none";
+        }
+
+        logoutLink.addEventListener("click", function () {
+          localStorage.removeItem("oturumEposta");
+          sessionStorage.removeItem("sesCaldi");
+          window.location.href = "login.html";
+        });
+
+      } catch (err) {
+        console.error("Kullanıcı adı alınamadı:", err);
+      }
+    });
+
+    async function getCustomerNameFromEmail(eposta) {
+      try {
+        const response = await fetch(`http://localhost:5067/kullanici/isim?eposta=${eposta}`);
+        const data = await response.json();
+        return data.ad;
+      } catch (err) {
+        console.error("Kullanıcı adı alınamadı:", err);
+        return null;
+      }
+    };
+
+</script>

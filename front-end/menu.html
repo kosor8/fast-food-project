@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menüler - Burgery Co&copy;</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="menu_style.css" />
+  </head>
+  <body>
+      <audio id="backgroundMusic" loop>
+          <source src="sounds/waiting.mp3" type="audio/mpeg">
+      </audio>
+
+      <div class="header-container">
+          <div class="header-content">
+              <img src="images/burgery.png" alt="Logo" class="header-logo-special" />
+
+              <nav class="nav-links">
+                  <a href="main2.html">Burgery</a>
+                  <a href="menu.html">Menüler</a>
+                  <a href="#">İletişim</a>
+                  <a href="konum.html">Konum</a>
+              </nav>
+
+              <div class="header-right">
+                  <div class="cart-icon"><a href="cart.html"><img src="images/sepet.png"></a></div>
+                  <div class="auth-links">
+                      <a href="login.html" id="auth-link">Giriş Yap</a>
+                      <a href="login.html" id="logout-link">Çıkış Yap</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="bilgi-seridi">
+          <p>
+              Haftanın Her Günü 10:00 - 22:00 Açığız | Pazartesi Günleri Kapalıyız | Happy Hour: 15:00 - 17:00 Arası %30 İndirim!
+          </p>
+      </div>
+
+      <div class="menu-container">
+          <h1 class="menu-title">Menü Ağacı</h1>
+
+          <div class="tree-container">
+              <!-- Ana Menü Node -->
+              <div class="tree-node">
+                  <div class="tree-node-title">Burgery Menü</div>
+
+                  <div class="tree-children">
+                      <!-- Burgerler -->
+                      <div class="tree-child">
+                          <div class="tree-child-title">Burgerler</div>
+                          <div class="tree-items">
+                              <div class="tree-item" id="101">
+                                  <div class="tree-item-content">
+                                      <div>Inferno Burger</div>
+                                      <div class="tree-item-price">₺189.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/burgers/inferno.jpg');">
+                                          Alevde pişirilmiş dana eti, erimiş peynirler, jalapeno ve özel soslar
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="101">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="102">
+                                  <div class="tree-item-content">
+                                      <div>Gurme Umami</div>
+                                      <div class="tree-item-price">₺199.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/burgers/gurme.jpg');">
+                                          Trüflü aioli, kızarmış mantar ve özel soslarla
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="102">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="103">
+                                  <div class="tree-item-content">
+                                      <div>Double Cheeseburger</div>
+                                      <div class="tree-item-price">₺179.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/burgers/double.png');">
+                                          İki kat dana eti, çift cheddar peyniri, özel sos
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="103">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="104">
+                                  <div class="tree-item-content">
+                                      <div>Baconburger with Cheese</div>
+                                      <div class="tree-item-price">₺229.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/burgers/bacon.png');">
+                                          Üç kat dana eti, bacon, cheddar, özel sos
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="104">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="105">
+                                  <div class="tree-item-content">
+                                      <div>Klasik Tavuk Burger</div>
+                                      <div class="tree-item-price">₺169.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/burgers/tavuk.jpg');">
+                                          Çıtır tavuk fileto, marul, mayonez
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="105">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- Yan Ürünler -->
+                      <div class="tree-child">
+                          <div class="tree-child-title">Yan Ürünler</div>
+                          <div class="tree-items">
+                              <div class="tree-item" id="201">
+                                  <div class="tree-item-content">
+                                      <div>Patates Kızartması</div>
+                                      <div class="tree-item-price">₺49.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/patates.png');">
+                                          Çıtır çıtır, baharatlı patates kızartması
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="201">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="202">
+                                  <div class="tree-item-content">
+                                      <div>Soğan Halkası</div>
+                                      <div class="tree-item-price">₺59.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/sogan.png');">
+                                          Çıtır çıtır, baharatlı soğan halkası
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="202">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="203">
+                                  <div class="tree-item-content">
+                                      <div>BurgeryNuggets</div>
+                                      <div class="tree-item-price">₺69.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/nugget.png');">
+                                          Çıtır tavuk nugget, özel sos ile
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="203">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="204">
+                                  <div class="tree-item-content">
+                                      <div>Mozzarella Çubukları</div>
+                                      <div class="tree-item-price">₺79.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/mozarella.png');">
+                                          Çıtır kaplamalı, erimiş mozzarella
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="204">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="205">
+                                  <div class="tree-item-content">
+                                      <div>Sweet Potato Fries</div>
+                                      <div class="tree-item-price">₺54.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/sweet.png');">
+                                          Tatlı patates kızartması, özel sos ile
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="205">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- İçecekler -->
+                      <div class="tree-child">
+                          <div class="tree-child-title">İçecekler</div>
+                          <div class="tree-items">
+                              <div class="tree-item" id="301">
+                                  <div class="tree-item-content">
+                                      <div>Kola</div>
+                                      <div class="tree-item-price">₺29.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description" style="background-image: url('images/kola.png');">
+                                          Soğuk içecek, 330ml
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="301">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="302">
+                                  <div class="tree-item-content">
+                                      <div>Ayran</div>
+                                      <div class="tree-item-price">₺24.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description">
+                                          Ev yapımı ayran, 330ml
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="302">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="303">
+                                  <div class="tree-item-content">
+                                      <div>Meyve Kokteyli</div>
+                                      <div class="tree-item-price">₺59.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description">
+                                          Taze meyvelerle hazırlanmış özel kokteyl
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="303">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="304">
+                                  <div class="tree-item-content">
+                                      <div>Milkshake</div>
+                                      <div class="tree-item-price">₺49.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description">
+                                          Çikolatalı/Vanilyalı/Çilekli
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="304">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="305">
+                                  <div class="tree-item-content">
+                                      <div>Ev Yapımı Limonata</div>
+                                      <div class="tree-item-price">₺39.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description">
+                                          Taze sıkılmış limon, nane yaprakları
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="305">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                      <!-- Tatlılar -->
+                      <div class="tree-child">
+                          <div class="tree-child-title">Tatlılar</div>
+                          <div class="tree-items">
+                              <div class="tree-item" id="401">
+                                  <div class="tree-item-content">
+                                      <div>Çikolatalı Sufle</div>
+                                      <div class="tree-item-price">₺69.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description">
+                                          Sıcak servis edilen, akışkan çikolatalı sufle
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="401">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="402">
+                                  <div class="tree-item-content">
+                                      <div>Dondurma</div>
+                                      <div class="tree-item-price">₺39.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description">
+                                          Çikolatalı/Vanilyalı/Çilekli
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="402">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="403">
+                                  <div class="tree-item-content">
+                                      <div>New York Cheesecake</div>
+                                      <div class="tree-item-price">₺79.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description">
+                                          Krem peynirli, frambuaz soslu
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="403">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="404">
+                                  <div class="tree-item-content">
+                                      <div>Tiramisu</div>
+                                      <div class="tree-item-price">₺74.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description">
+                                          İtalyan usulü, kahve ve mascarpone
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="404">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                              <div class="tree-item" id="405">
+                                  <div class="tree-item-content">
+                                      <div>Browni</div>
+                                      <div class="tree-item-price">₺64.90</div>
+                                  </div>
+                                  <div class="tree-item-details">
+                                      <div class="tree-item-description">
+                                          Çikolatalı, fındıklı browni
+                                      </div>
+                                      <button class="tree-item-add" data-product-id="405">Sepete Ekle</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Tree ile Menü -->
+
+          <footer class="site-footer">
+      <div class="footer-container">
+        <!-- Hakkımızda -->
+        <div class="footer-section about">
+          <img src="images/burgery.png" alt="Logo" class="logo" />
+          <h3 class="footer-baslik">Hakkımızda</h3>
+          <p>
+            Burgery, 2025 yılından beri hizmetinizde.
+          </p>
+        </div>
+
+        <!-- İletişim -->
+        <div class="footer-section contact">
+          <img style="width: 310px;"src="images/footer-space.png"/>
+          <h3 class="footer-baslik">İletişim</h3>
+          <ul>
+            <li>📞 +90 530 332 72 08</li>
+            <li>✉️ 032390049@ogr.uludag.edu.tr</li>
+            <li>📍 Nilüfer / Bursa</li>
+          </ul>
+        </div>
+
+        <!-- Hızlı Linkler -->
+        <div class="footer-section links">
+          <img style="width: 310px;"src="images/footer-space.png"/>
+          <h3 class="footer-baslik">Hızlı Linkler</h3>
+          <ul>
+            <li><a href="menu.html">Menü</a></li>
+            <li><a href="konum.html">Konum</a></li>
+            <li><a href="main2.html">Ana Menü</a></li>
+          </ul>
+        </div>
+
+        <!-- Sosyal Medya -->
+        <div class="footer-section social">
+          <img style="width: 310px;"src="images/footer-space.png"/>
+          <h3 class="footer-baslik">Bizi Takip Edin</h3>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/ozanaydinw/"
+              ><img src="images/footer/instagram.jpg" alt="Instagram"/>
+          </div>
+        </div>
+      </div>
+      <!-- Alt Kısım -->
+      <div class="footer-bottom">
+        <p>
+          © 2025 FastFoodCo. Tüm hakları saklıdır. |
+          <a href="#">Gizlilik Politikası</a>
+        </p>
+      </div>
+    </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Müziği otomatik başlat
+      const music = document.getElementById('backgroundMusic');
+      music.volume = 0.5;
+      music.play().catch(function (error) {
+          console.log("Müzik otomatik başlatılamadı:", error);
+      });
+
+      // Kategori filtreleme işlemi
+      const categoryButtons = document.querySelectorAll('.category-btn');
+      const menuItems = document.querySelectorAll('.menu-item');
+
+      categoryButtons.forEach(button => {
+          button.addEventListener('click', function () {
+              categoryButtons.forEach(btn => btn.classList.remove('active'));
+              this.classList.add('active');
+
+              const category = this.textContent.toLowerCase();
+
+              menuItems.forEach(item => {
+                  if (category === 'tümü') {
+                      item.style.display = 'block';
+                  } else {
+                      item.style.display = item.classList.contains(category) ? 'block' : 'none';
+                  }
+              });
+          });
+      });
+
+      // Sepete ürün ekleme işlemi
+      const sepeteEkleButonlariMenu = document.querySelectorAll('.tree-item-add');
+      sepeteEkleButonlariMenu.forEach(button => {
+          button.addEventListener('click', function () {
+              const urunDetaylari = this.parentNode;
+              const urunAdiElementi = urunDetaylari.previousElementSibling.querySelector('div:first-child');
+              const urunFiyatElementi = urunDetaylari.previousElementSibling.querySelector('.tree-item-price');
+              const urunId = urunDetaylari.parentNode.id;
+              const urunKategoriElementi = this.closest('.tree-child').querySelector('.tree-child-title');
+
+              if (urunAdiElementi && urunFiyatElementi && urunId && urunKategoriElementi) {
+                  const urunAdi = urunAdiElementi.textContent;
+                  const urunFiyat = parseFloat(urunFiyatElementi.textContent.replace('₺', ''));
+                  const urunKategorisi = urunKategoriElementi.textContent;
+
+                  sepeteEkleLocalStorage({
+                      id: urunId,
+                      name: urunAdi,
+                      price: urunFiyat,
+                      category: urunKategorisi,
+                      quantity: 1
+                  });
+
+                  alert(`${urunAdi} sepete eklendi!`); // Türkçe karakterler için encodeURIComponent kullan
+              } else {
+                  console.error("Ürün bilgileri alınamadı.");
+              }
+          });
+      });
+
+      // Sepet güncelleme fonksiyonu
+      function sepeteEkleLocalStorage(yeniUrun) {
+          let sepet = JSON.parse(localStorage.getItem('cart')) || [];
+          const urunSepetteMi = sepet.find(urun => urun.id === yeniUrun.id);
+
+          if (urunSepetteMi) {
+              urunSepetteMi.quantity++;
+          } else {
+              sepet.push(yeniUrun);
+          }
+
+          localStorage.setItem('cart', JSON.stringify(sepet));
+      }
+
+      // Sayfa yüklendiğinde "Tümü" kategori butonunun aktif olması
+      const categoryButtonsInit = document.querySelectorAll('.kategori-button');
+      if (categoryButtonsInit.length > 0) {
+          categoryButtonsInit[0].click();
+      } else {
+          console.error("Kategori butonları bulunamadı!");
+      }
+
+      // Sepete ekleme API isteği
+      const addToCartButtons = document.querySelectorAll('.tree-item-add');
+      addToCartButtons.forEach(button => {
+          button.addEventListener('click', function () {
+              const productId = this.dataset.productId;
+              addToCart(productId);
+          });
+      });
+
+      // API üzerinden sepete ürün ekleme
+      async function addToCart(productId) {
+          console.log('Sepete ekle tıklandı', productId);
+          try {
+              const response = await fetch(`http://localhost:5067/api/Cart/add/${productId}`, {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+              });
+
+              if (response.ok) {
+                  const data = await response.json();
+                  console.log('Ürün sepete eklendi:', data);
+              } else {
+                  console.error('Sepete ekleme başarısız oldu:', response.status);
+              }
+          } catch (error) {
+              console.error('Bir hata oluştu:', error);
+          }
+      }
+  });
+
+  // Sayfa yüklendiğinde hash varsa, ilgili öğeye kaydırma işlemi
+  window.onload = () => {
+      const hash = window.location.hash;
+      if (hash) {
+          const target = document.querySelector(hash);
+          if (target) {
+              setTimeout(() => {
+                  target.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+          }
+      }
+  };
+
+    // Kullanıcı adı alma ve gösterme
+  document.addEventListener("DOMContentLoaded", async () => {
+    const eposta = localStorage.getItem("oturumEposta");
+    const authLink = document.getElementById("auth-link");
+    const logoutLink = document.getElementById("logout-link");
+
+    try {
+      const response = await fetch(`http://localhost:5067/kullanici/isim?eposta=${eposta}`);
+      const customerName = await getCustomerNameFromEmail(eposta);
+
+      if (customerName && authLink) {
+        authLink.textContent = customerName;
+        authLink.href = "#";
+      } else {
+        // Giriş yapılmamışsa
+        authLink.textContent = "Giriş Yap";
+        authLink.href = "login.html";
+        logoutLink.style.display = "none";
+      }
+
+      logoutLink.addEventListener("click", function () {
+        localStorage.removeItem("oturumEposta");
+        sessionStorage.removeItem("sesCaldi");
+        window.location.href = "login.html";
+      });
+
+    } catch (err) {
+      console.error("Kullanıcı adı alınamadı:", err);
+    }
+  });
+
+  async function getCustomerNameFromEmail(eposta) {
+    try {
+      const response = await fetch(`http://localhost:5067/kullanici/isim?eposta=${eposta}`);
+      const data = await response.json();
+      return data.ad;
+    } catch (err) {
+      console.error("Kullanıcı adı alınamadı:", err);
+      return null;
+    }
+  };
+</script>
+  </body>
+</html> 

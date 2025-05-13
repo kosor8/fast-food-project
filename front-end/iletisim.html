@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burgery Co&copy; İletişim</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="iletisim.css" />
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header-container">
+        <div class="header-content">
+            <img src="images/burgery.png" alt="Logo" class="header-logo-special" />
+            <nav class="nav-links">
+                <a href="main2.html">Burgery</a>
+                <a href="menu.html">Menüler</a>
+                <a href="iletisim.html">İletişim</a>
+                <a href="konum.html">Konum</a>
+            </nav>
+            <div class="header-right">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ana İçerik -->
+    <div class="container">
+        <h1>Ekibimizle Tanışın</h1>
+        
+        <section class="team-section">
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="images/burgery.png" alt="Logo" class="team-logo">
+                    <h3>Mustafa Ozan AYDIN</h3>
+                    <p>Front End</p>
+                    <p>musti20048@gmail.com</p>
+                </div>
+                <div class="team-card">
+                    <img src="images/burgery.png" alt="Logo" class="team-logo">
+                    <h3>Mustafa Mert BEDEZ</h3>
+                    <p>Front End</p>
+                    <p>mustafamertbedez@gmail.com</p>
+                </div>
+                <div class="team-card">
+                    <img src="images/burgery.png" alt="Logo" class="team-logo">
+                    <h3>Arda Berat KOSOR</h3>
+                    <p>Back End</p>
+                    <p>beratkosor43@gmail.com</p>
+                </div>
+                <div class="team-card">
+                    <img src="images/burgery.png" alt="Logo" class="team-logo">
+                    <h3>Berat ÇAM</h3>
+                    <p>Back End</p>
+                    <p>beratcamm0606@gmail.com</p>
+                </div>
+                <div class="team-card">
+                    <img src="images/burgery.png" alt="Logo" class="team-logo">
+                    <h3>Sevim Çıra</h3>
+                    <p>Back End</p>
+                    <p>sevimcira588@gmail.com</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <img src="images/burgery.png" alt="Logo" class="logo" />
+                <h3 class="footer-baslik">Hakkımızda</h3>
+                <p>Burgery, 2025 yılından beri hizmetinizde.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Burgery Co. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mevcut kullanıcı kontrolü için script
+        document.addEventListener("DOMContentLoaded", async () => {
+            const eposta = localStorage.getItem("oturumEposta");
+            const authLink = document.getElementById("auth-link");
+            const logoutLink = document.getElementById("logout-link");
+            
+            try {
+                const customerName = await getCustomerNameFromEmail(eposta);
+                if (customerName && authLink) {
+                    authLink.textContent = customerName;
+                    authLink.href = "#";
+                } else {
+                    authLink.textContent = "Giriş Yap";
+                    authLink.href = "login.html";
+                    logoutLink.style.display = "none";
+                }
+                
+                logoutLink.addEventListener("click", function () {
+                    localStorage.removeItem("oturumEposta");
+                    window.location.href = "login.html";
+                });
+            } catch (err) {
+                console.error("Kullanıcı adı alınamadı:", err);
+            }
+        });
+
+        async function getCustomerNameFromEmail(eposta) {
+            if (!eposta) return null;
+            try {
+                const response = await fetch(`http://localhost:5067/kullanici/isim?eposta=${eposta}`);
+                const data = await response.json();
+                return data.ad;
+            } catch (err) {
+                console.error("Kullanıcı adı alınamadı:", err);
+                return null;
+            }
+        }
+    </script>
+</body>
+</html>
+``` 
