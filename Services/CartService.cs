@@ -1,4 +1,4 @@
-﻿using FastFoodMenuAPI.Models;
+using FastFoodMenuAPI.Models;
 
 namespace FastFoodMenuAPI.Services
 {
@@ -73,4 +73,3 @@ namespace FastFoodMenuAPI.Services
         }
     }
 }
-

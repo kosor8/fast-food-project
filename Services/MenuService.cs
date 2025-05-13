@@ -1,4 +1,4 @@
-﻿using FastFoodMenuAPI.Models;
+using FastFoodMenuAPI.Models;
 namespace FastFoodMenuAPI.Services
 {
     public class MenuService

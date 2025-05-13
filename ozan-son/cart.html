@@ -318,11 +318,11 @@
             renderCartSummary();
 
             let method = 'POST';
-            let apiUrl = `https://localhost:7102/api/Cart/add/${productId}`;
+            let apiUrl = `http://localhost:5067/api/Cart/add/${productId}`;
 
             if (change < 0) {
                 method = 'DELETE';
-                apiUrl = `https://localhost:7102/api/Cart/remove/${productId}`; // Backend endpoint'inizi buna göre ayarlayın
+                apiUrl = `http://localhost:5067/api/Cart/remove/${productId}`; // Backend endpoint'inizi buna göre ayarlayın
             }
 
             fetch(apiUrl, {
@@ -390,7 +390,7 @@
 
         try {
             // 1. POST isteği: Siparişi oluştur
-            const placeOrderResponse = await fetch('https://localhost:7102/api/Order/place-order', {
+            const placeOrderResponse = await fetch('http://localhost:5067/api/Order/place-order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
