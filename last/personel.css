@@ -1,0 +1,263 @@
+/* Genel stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+    font-family: "Jost", sans-serif;
+    background: url('images/personelfoto.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Header stilleri */
+.header-container {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-logo-special {
+    height: 50px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+    .nav-links a {
+        color: #2c3e50;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+        .nav-links a:hover {
+            background-color: #f0f0f0;
+            color: #e74c3c;
+        }
+
+/* Sipariþ listesi stilleri */
+.siparisler {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.siparis-listesi {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0;
+}
+
+.siparis-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+    .siparis-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+.aktif-siparis {
+    border: 2px solid #e74c3c;
+    background-color: #fff5f5;
+}
+
+.siparis-durum {
+    background-color: #e74c3c;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+/* Sýradaki Sipariþ Bölümü */
+.siradaki {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#siradakiSiparis {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    text-align: left;
+    line-height: 1.8;
+}
+
+#hazirlaBtn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+    #hazirlaBtn:hover:not(:disabled) {
+        background-color: #c0392b;
+        transform: translateY(-2px);
+    }
+
+    #hazirlaBtn:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+/* Ürün Listesi Stili */
+.siparis-item strong {
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.siparis-item br {
+    margin-bottom: 8px;
+}
+
+/* Footer Stili */
+.site-footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer-baslik {
+    color: #e74c3c;
+    margin-bottom: 15px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Responsive tasarým */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .siparis-listesi {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 15px;
+    }
+
+    .header-logo-special {
+        height: 40px;
+    }
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.siparis-item {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Yükleme Durumu */
+.siparis-listesi:empty::before {
+    content: 'Sipariþler yükleniyor...';
+    display: block;
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+
+/* Hata Mesajý Stili */
+.siparis-listesi li:only-child {
+    color: #e74c3c;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff5f5;
+    border-radius: 8px;
+    border: 1px solid #ffcdd2;
+}
