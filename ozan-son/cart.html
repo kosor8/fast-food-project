@@ -16,7 +16,7 @@
     />
 
     <meta charset="UTF-8" />
-    <title>Burgery Co&copy; Sepet</title>
+    <title>Sepet Sayfası</title>
     <!-- Stil dosyasını ekleme -->
     <link rel="stylesheet" href="cart_style.css" />
   </head>
@@ -37,7 +37,7 @@
           <a href="main2.html">Burgery</a>
           <a href="menu.html">Menüler</a>
           <a href="#">İletişim</a>
-          <a href="konum.html">Konum</a>
+          <a href="#">Konum</a>
         </nav>
     
         <div class="header-right">
@@ -210,173 +210,215 @@
 </style>
 
 <script>
-  // Slider işlemleri için gerekli değişkenler
-  const sliderTrack = document.querySelector(".slider-track");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  let currentIndex = 0; // Hangi pozisyondayız
+    // Slider işlemleri için gerekli değişkenler (mevcut kodunuz)
+    const sliderTrack = document.querySelector(".slider-track");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let currentIndex = 0;
+    const maxIndex = 2;
 
-  // Slider için olası maksimum index (6 ürün, 2 gösteriliyor => 3 adım)
-  const maxIndex = 2;
+    // Sepet özetini hesaplama ve ekrana yazdırma
+    function renderCartSummary() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Önce localStorage'da 'cart' yoksa örnek ürünleri ekleyelim
-  // Her ürün: isim, fiyat, miktar, kategori, (isteğe bağlı görsel yolu)
-  if (!localStorage.getItem("cart")) {
-    const initialCart = [
-      { name: "Hamburger", price: 50, quantity: 1, category: "Burgerler" },
-      { name: "Cheeseburger", price: 60, quantity: 2, category: "Burgerler" },
-      { name: "Cola", price: 15, quantity: 3, category: "İçecekler" },
-      { name: "Lemonade", price: 12, quantity: 1, category: "İçecekler" },
-      { name: "Cake", price: 40, quantity: 1, category: "Tatlılar" },
-      { name: "Fries", price: 20, quantity: 2, category: "Yan Ürünler" },
-    ];
-    localStorage.setItem("cart", JSON.stringify(initialCart));
-  }
+        const categories = {
+            Burgerler: [],
+            İçecekler: [],
+            Tatlılar: [],
+            "Yan Ürünler": [],
+        };
+        cart.forEach((item) => {
+            if (categories[item.category]) {
+                categories[item.category].push(item);
+            }
+        });
 
-  // Sepet özetini hesaplama ve ekrana yazdırma
-  function renderCartSummary() {
-    // LocalStorage'daki sepet verisini al
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        document.getElementById("burgerler-list").innerHTML = "";
+        document.getElementById("icecekler-list").innerHTML = "";
+        document.getElementById("tatlilar-list").innerHTML = "";
+        document.getElementById("yanurunler-list").innerHTML = "";
 
-    // Kategorilere göre elemanları topla
-    const categories = {
-      Burgerler: [],
-      İçecekler: [],
-      Tatlılar: [],
-      "Yan Ürünler": [],
-    };
-    cart.forEach((item) => {
-      if (categories[item.category]) {
-        categories[item.category].push(item);
-      }
+        let subTotal = 0;
+
+        function fillCategoryList(catName, listId) {
+            const listElement = document.getElementById(listId);
+            categories[catName].forEach((product, index) => {
+                const li = document.createElement("li");
+                li.className = "cart-item";
+
+                const itemInfo = document.createElement("div");
+                itemInfo.className = "cart-item-info";
+                itemInfo.textContent = `${product.name} - ${product.price} TL`;
+
+                const controls = document.createElement("div");
+                controls.className = "cart-item-controls";
+
+                const quantityControl = document.createElement("div");
+                quantityControl.className = "quantity-control";
+
+                const minusBtn = document.createElement("button");
+                minusBtn.className = "quantity-btn";
+                minusBtn.textContent = "-";
+                minusBtn.onclick = () => updateQuantity(product.id, -1); // ID ile güncelleme
+                quantityControl.appendChild(minusBtn);
+
+                const quantity = document.createElement("span");
+                quantity.textContent = product.quantity;
+                quantityControl.appendChild(quantity);
+
+                const plusBtn = document.createElement("button");
+                plusBtn.className = "quantity-btn";
+                plusBtn.textContent = "+";
+                plusBtn.onclick = () => updateQuantity(product.id, 1); // ID ile güncelleme
+                quantityControl.appendChild(plusBtn);
+
+                controls.appendChild(quantityControl);
+
+                const deleteBtn = document.createElement("button");
+                deleteBtn.className = "delete-btn";
+                deleteBtn.innerHTML = '<img src="images/trash.png" alt="Sil">';
+                deleteBtn.onclick = () => removeItem(product.id); // ID ile silme
+                controls.appendChild(deleteBtn);
+
+                li.appendChild(itemInfo);
+                li.appendChild(controls);
+                listElement.appendChild(li);
+
+                subTotal += product.price * product.quantity;
+            });
+        }
+
+        fillCategoryList("Burgerler", "burgerler-list");
+        fillCategoryList("İçecekler", "icecekler-list");
+        fillCategoryList("Tatlılar", "tatlilar-list");
+        fillCategoryList("Yan Ürünler", "yanurunler-list");
+
+        const vat = subTotal * 0.08;
+        const total = subTotal + vat + 89.9;
+
+        document.getElementById("sub-total").textContent = subTotal.toFixed(2);
+        document.getElementById("vat").textContent = vat.toFixed(2);
+        document.getElementById("total-price").textContent = total.toFixed(2);
+    }
+
+    // Ürün miktarını güncelleme fonksiyonu (ID ile arama)
+    // Ürün miktarını güncelleme fonksiyonu (ID ile arama)
+    function updateQuantity(productId, change) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const productIndex = cart.findIndex(item => item.id === productId);
+
+        if (productIndex !== -1) {
+            cart[productIndex].quantity += change;
+
+            if (cart[productIndex].quantity <= 0) {
+                cart.splice(productIndex, 1);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCartSummary();
+
+            let method = 'POST';
+            let apiUrl = `https://localhost:7102/api/Cart/add/${productId}`;
+
+            if (change < 0) {
+                method = 'DELETE';
+                apiUrl = `https://localhost:7102/api/Cart/remove/${productId}`; // Backend endpoint'inizi buna göre ayarlayın
+            }
+
+            fetch(apiUrl, {
+                method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    quantityChange: Math.abs(change), // Mutlak değeri gönderiyoruz (1)
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log("Sepet miktarı güncellendi");
+                    } else {
+                        console.error("Sepet miktarı güncelleme başarısız");
+                    }
+                })
+                .catch(error => console.error("Hata:", error));
+        }
+    }
+
+    // Slider butonlarına tıklama olayları (mevcut kodunuz)
+    prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
+        }
     });
 
-    // Her kategori listesi için HTML oluştur
-    document.getElementById("burgerler-list").innerHTML = "";
-    document.getElementById("icecekler-list").innerHTML = "";
-    document.getElementById("tatlilar-list").innerHTML = "";
-    document.getElementById("yanurunler-list").innerHTML = "";
+    nextBtn.addEventListener("click", () => {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
+        }
+    });
 
-    let subTotal = 0;
+    setInterval(() => {
+        currentIndex++;
+        if (currentIndex > maxIndex) {
+            currentIndex = 0;
+        }
+        sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
+    }, 3000);
 
-    // Yardımcı fonksiyon: kategori adına göre uygun listeyi seç ve doldur
-    function fillCategoryList(catName, listId) {
-      const listElement = document.getElementById(listId);
-      categories[catName].forEach((product, index) => {
-        const li = document.createElement("li");
-        li.className = "cart-item";
-        
-        const itemInfo = document.createElement("div");
-        itemInfo.className = "cart-item-info";
-        itemInfo.textContent = `${product.name} - ${product.price} TL`;
-        
-        const controls = document.createElement("div");
-        controls.className = "cart-item-controls";
-        
-        const quantityControl = document.createElement("div");
-        quantityControl.className = "quantity-control";
-        
-        const minusBtn = document.createElement("button");
-        minusBtn.className = "quantity-btn";
-        minusBtn.textContent = "-";
-        minusBtn.onclick = () => updateQuantity(product.name, -1);
-        
-        const quantity = document.createElement("span");
-        quantity.textContent = product.quantity;
-        
-        const plusBtn = document.createElement("button");
-        plusBtn.className = "quantity-btn";
-        plusBtn.textContent = "+";
-        plusBtn.onclick = () => updateQuantity(product.name, 1);
-        
-        const deleteBtn = document.createElement("button");
-        deleteBtn.className = "delete-btn";
-        deleteBtn.innerHTML = '<img src="images/trash.png" alt="Sil">';
-        deleteBtn.onclick = () => removeItem(product.name);
-        
-        quantityControl.appendChild(minusBtn);
-        quantityControl.appendChild(quantity);
-        quantityControl.appendChild(plusBtn);
-        
-        controls.appendChild(quantityControl);
-        controls.appendChild(deleteBtn);
-        
-        li.appendChild(itemInfo);
-        li.appendChild(controls);
-        listElement.appendChild(li);
-        
-        subTotal += product.price * product.quantity;
-      });
+    // Sayfa yüklendiğinde sepet özetini hazırla
+    window.addEventListener("DOMContentLoaded", () => {
+        renderCartSummary();
+    });
+
+    // "Siparişi Tamamla" butonunu seç
+    // ... (Diğer JavaScript kodlarınız) ...
+
+    // "Siparişi Tamamla" butonunu seç
+    const completeOrderBtn = document.getElementById("checkout-button");
+
+    if (completeOrderBtn) {
+        completeOrderBtn.addEventListener("click", completeOrder);
     }
 
-    // Her kategori için liste doldur
-    fillCategoryList("Burgerler", "burgerler-list");
-    fillCategoryList("İçecekler", "icecekler-list");
-    fillCategoryList("Tatlılar", "tatlilar-list");
-    fillCategoryList("Yan Ürünler", "yanurunler-list");
 
-    // Vergi (%8) ve toplam hesapla
-    const vat = subTotal * 0.08;
-    const total = subTotal + vat + 89.9;
+    async function completeOrder() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Ekranda göster
-    document.getElementById("sub-total").textContent = subTotal.toFixed(2);
-    document.getElementById("vat").textContent = vat.toFixed(2);
-    document.getElementById("total-price").textContent = total.toFixed(2);
-  }
+        try {
+            // 1. POST isteği: Siparişi oluştur
+            const placeOrderResponse = await fetch('https://localhost:7102/api/Order/place-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cart),
+            });
 
-  // Ürün miktarını güncelleme fonksiyonu
-  function updateQuantity(productName, change) {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const productIndex = cart.findIndex(item => item.name === productName);
-    
-    if (productIndex !== -1) {
-      cart[productIndex].quantity += change;
-      
-      // Eğer miktar 0 veya daha az olduysa ürünü sepetten kaldır
-      if (cart[productIndex].quantity <= 0) {
-        cart.splice(productIndex, 1);
-      }
-      
-      localStorage.setItem("cart", JSON.stringify(cart));
-      renderCartSummary();
+            if (placeOrderResponse.ok) {
+                const orderResult = await placeOrderResponse.json();
+                console.log("Sipariş oluşturuldu:", orderResult);
+
+                // 2. Sepeti temizle (localStorage'dan)
+                localStorage.removeItem("cart");
+
+                // 3. Sepet özetini yeniden render et (boş sepeti göstermek için)
+                renderCartSummary();
+
+                // 4. Anasayfaya yönlendir
+                window.location.href = "main2.html"; // Anasayfanızın URL'si
+            } else {
+                console.error("Sipariş oluşturma başarısız:", placeOrderResponse.status);
+                // Kullanıcıya hata mesajı gösterebilirsiniz.
+            }
+
+        } catch (error) {
+            console.error("Sipariş işlemi sırasında bir hata oluştu:", error);
+            // Kullanıcıya hata mesajı gösterebilirsiniz.
+        }
     }
-  }
 
-  // Ürünü sepetten kaldırma fonksiyonu
-  function removeItem(productName) {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const updatedCart = cart.filter(item => item.name !== productName);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    renderCartSummary();
-  }
-
-  // Slider butonlarına tıklama olayları
-  prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
-    }
-  });
-
-  nextBtn.addEventListener("click", () => {
-    if (currentIndex < maxIndex) {
-      currentIndex++;
-      sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
-    }
-  });
-
-  // Sayfa yüklendiğinde sepet özetini hazırla
-  window.addEventListener("DOMContentLoaded", () => {
-    renderCartSummary();
-  });
-
-  // Otomatik slider: her 3 saniyede bir ileri kaydır
-  setInterval(() => {
-    currentIndex++;
-    if (currentIndex > maxIndex) {
-      currentIndex = 0; // Başa dön
-    }
-    sliderTrack.style.transform = `translateX(-${currentIndex * 500}px)`;
-  }, 3000); // 3000ms = 3 saniye
 </script>
